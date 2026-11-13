@@ -3,181 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Agri Kashmir - A knowledge platform for agriculture, apple orchards, horticulture and farmers in Jammu and Kashmir.">
-<meta name="theme-color" content="#123d2a">
-<title>Agri Kashmir | Agriculture Knowledge Portal</title>
+<meta name="description" content="Agri Kashmir - Agricultural knowledge, apple farming, orchard management and farmer resources for Jammu and Kashmir.">
+<title>Agri Kashmir | Smart Agriculture</title>
 
 <style>
 :root {
-  --green:#123d2a;
-  --green2:#246c43;
-  --lime:#a5cf79;
-  --cream:#f5f8f2;
-  --white:#fff;
-  --text:#24372b;
-  --muted:#68786d;
+  --green:#176b45;
+  --dark:#10442f;
+  --light:#eaf5ed;
+  --lime:#b9df91;
+  --white:#ffffff;
+  --text:#25372d;
+  --muted:#718078;
+  --bg:#f7faf7;
+  --border:#e1ebe3;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
   color:var(--text);
+  background:var(--bg);
   line-height:1.6;
 }
-header{
+a {text-decoration:none;color:inherit}
+button,input,select {font:inherit}
+header {
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid var(--border);
+}
+.nav {
+  max-width:1200px;
+  margin:auto;
+  padding:14px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--dark);
+  font-weight:800;
+  font-size:22px;
+}
+.logo-icon {
   background:var(--green);
   color:white;
-  padding:15px 6%;
+  padding:8px;
+  border-radius:12px;
+}
+.nav-links {
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:14px;
+  gap:23px;
 }
-.brand{font-size:25px;font-weight:bold}
-.brand span{color:var(--lime)}
-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:14px}
-nav a:hover{color:var(--lime)}
-select{
-  padding:9px;border:0;border-radius:6px;
+.nav-links a {
+  font-size:14px;
+  font-weight:600;
+  color:#42554a;
 }
-.hero{
-  min-height:440px;
-  padding:80px 8%;
-  display:flex;
-  align-items:center;
+.nav-links a:hover {color:var(--green)}
+select {
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+  background:white;
+  color:var(--dark);
+}
+.menu-btn {
+  display:none;
+  border:0;
+  background:var(--light);
+  padding:9px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.hero {
+  background:linear-gradient(115deg,#103f2c,#176b45 60%,#4d9661);
   color:white;
-  background:
-  linear-gradient(90deg,rgba(9,39,24,.9),rgba(9,39,24,.38)),
-  url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85") center/cover;
+  padding:85px 22px;
 }
-.hero-content{max-width:720px}
-.hero small{
+.hero-inner {
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:35px;
+  align-items:center;
+}
+.eyebrow {
   color:var(--lime);
-  text-transform:uppercase;
+  font-weight:700;
   letter-spacing:2px;
-  font-weight:bold;
+  font-size:12px;
+  text-transform:uppercase;
 }
-.hero h1{
-  font-size:clamp(36px,6vw,59px);
+.hero h1 {
+  font-size:clamp(36px,5vw,59px);
   line-height:1.13;
   margin:17px 0;
 }
-.hero p{font-size:18px;max-width:620px}
-.btn{
+.hero p {
+  color:#e0eee4;
+  max-width:590px;
+  font-size:17px;
+}
+.hero-buttons {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:27px;
+}
+.btn {
   display:inline-block;
-  background:var(--lime);
-  color:var(--green);
-  padding:12px 23px;
-  margin-top:23px;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
+  padding:12px 21px;
+  border-radius:9px;
+  font-weight:700;
+  border:0;
+  cursor:pointer;
 }
-section{padding:65px 7%;scroll-margin-top:20px}
-.heading{text-align:center;margin-bottom:35px}
-.heading h2{font-size:30px;color:var(--green)}
-.heading p{color:var(--muted);margin-top:7px}
-.search-area{
-  background:white;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 4px 18px #0000000b;
-  max-width:750px;
-  margin:-35px auto 30px;
-  position:relative;
-}
-.search-area input{
-  width:100%;
-  padding:15px;
-  border:1px solid #dce5dc;
-  border-radius:7px;
-  font-size:15px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
-  gap:22px;
-}
-.card{
-  background:white;
-  border-radius:12px;
-  padding:24px;
-  box-shadow:0 4px 18px #0000000a;
-  border:1px solid #e7eee6;
-  transition:.2s;
-}
-.card:hover{transform:translateY(-4px)}
-.card .icon{font-size:34px}
-.card h3{color:var(--green);margin:10px 0}
-.card p{font-size:14px;color:var(--muted)}
-.card a{
-  display:inline-block;
-  color:var(--green2);
-  margin-top:13px;
-  font-size:14px;
-  font-weight:bold;
-  text-decoration:none;
-}
-.green-section{background:#eaf2e7}
-.feature{
-  background:var(--green);
-  color:white;
-  padding:35px;
-  border-radius:13px;
-  margin-top:25px;
-}
-.feature h3{font-size:24px;color:var(--lime);margin-bottom:10px}
-.feature p{color:#e0eadf}
-.info-list{
-  background:white;
-  padding:25px;
-  border-radius:10px;
-}
-.info-list h3{color:var(--green);margin-bottom:12px}
-.info-list li{margin:8px 0 8px 20px}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;background:white}
-th,td{padding:14px;text-align:left;border:1px solid #dce5dc}
-th{background:var(--green);color:white}
-tr:nth-child(even){background:#f0f6ee}
-.notice{
-  background:#fff4d8;
-  border-left:5px solid #d7a52d;
-  padding:17px;
-  border-radius:6px;
-  margin-top:22px;
-  color:#634f22;
-}
-.resource{
-  display:block;
-  background:white;
-  color:var(--green);
-  padding:17px;
-  border-radius:8px;
-  margin-bottom:12px;
-  text-decoration:none;
-  font-weight:bold;
-  border:1px solid #e3ebe2;
-}
-.resource:hover{background:#e9f3e7}
-footer{
-  background:#0d2c1d;
-  color:#dce8dc;
-  padding:35px 7%;
+.btn-light {background:white;color:var(--dark)}
+.btn-outline {border:1px solid #d5eadb;color:white}
+.hero-card {
+  background:#ffffff17;
+  border:1px solid #ffffff35;
+  border-radius:20px;
+  padding:30px;
   text-align:center;
 }
-footer p{font-size:13px;margin:5px}
-footer a{color:var(--lime)}
-.hidden{display:none}
-@media(max-width:650px){
- header{justify-content:center}
- nav{justify-content:center}
- .hero{padding:65px 7%}
- section{padding:48px 6%}
- .search-area{margin:-25px 6% 25px}
+.hero-card .big {font-size:75px}
+.hero-card h3 {font-size:23px;margin:8px}
+.hero-card p {font-size:14px;margin:auto}
+.container {
+  max-width:1150px;
+  margin:auto;
+  padding:65px 22px;
+}
+.section-head {margin-bottom:27px}
+.section-head span {
+  color:var(--green);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.section-head h2 {
+  font-size:32px;
+  color:var(--dark);
+  margin:7px 0;
+}
+.section-head p {color:var(--muted)}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:-1px;
+}
+.stat {
+  background:white;
+  padding:23px;
+  border:1px solid var(--border);
+  border-radius:13px;
+}
+.stat strong {font-size:24px;color:var(--green);display:block}
+.stat small {color:var(--muted)}
+.search-box {
+  display:flex;
+  gap:10px;
+  margin:20px 0 25px;
+}
+.search-box input {
+  flex:1;
+  min-width:0;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  outline:none;
+}
+.search-box input:focus {border-color:var(--green)}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:19px;
+}
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:23px;
+  transition:.2s;
+}
+.card:hover {
+  transform:translateY(-4px);
+  box-shadow:0 9px 25px #174f3010;
+}
+.card-icon {font-size:33px}
+.card h3 {color:var(--dark);margin:10px 0 7px}
+.card p {color:var(--muted);font-size:14px}
+.tag {
+  display:inline-block;
+  margin-top:15px;
+  background:var(--light);
+  color:var(--green);
+  font-size:12px;
+  font-weight:700;
+  padding:5px 10px;
+  border-radius:30px;
+}
+.card.hidden {display:none}
+.no-results {
+  display:none;
+  padding:20px;
+  color:var(--muted);
+}
+.highlight {
+  background:var(--light);
+  border-radius:17px;
+  padding:35px;
+}
+.highlight h2 {color:var(--dark);margin-bottom:10px}
+.calendar {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
+  margin-top:20px;
+}
+.month {
+  background:white;
+  border:1px solid var(--border);
+  padding:18px;
+  border-radius:12px;
+}
+.month strong {color:var(--green)}
+.month p {font-size:13px;color:var(--muted);margin-top:8px}
+.notice {
+  background:#fff8e8;
+  border-left:4px solid #d69a30;
+  padding:15px;
+  border-radius:7px;
+  color:#6d5527;
+  font-size:13px;
+  margin-top:22px;
+}
+.resource-link {
+  color:var(--green);
+  font-weight:700;
+  display:inline-block;
+  margin-top:12px;
+}
+.cta {
+  background:var(--dark);
+  color:white;
+  border-radius:17px;
+  padding:40px;
+}
+.cta h2 {font-size:29px;margin-bottom:10px}
+.cta p {color:#d5e8db}
+footer {
+  background:#0c3022;
+  color:#d9e9df;
+  padding:35px 22px;
+}
+.footer-inner {
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+footer small {color:#a9c2b1}
+footer a {color:var(--lime)}
+@media(max-width:800px) {
+  .menu-btn {display:block}
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    width:100%;
+    background:white;
+    padding:20px;
+    flex-direction:column;
+    align-items:flex-start;
+    border-bottom:1px solid var(--border);
+  }
+  .nav-links.open {display:flex}
+  .hero-inner {grid-template-columns:1fr}
+  .hero {padding:60px 20px}
+  .cards {grid-template-columns:repeat(2,1fr)}
+  .calendar {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px) {
+  .cards,.stats {grid-template-columns:1fr}
+  .calendar {grid-template-columns:1fr 1fr}
+  .hero h1 {font-size:39px}
+  .container {padding:48px 17px}
+  .cta {padding:25px}
+  .section-head h2 {font-size:27px}
 }
 </style>
 </head>
@@ -185,310 +314,328 @@ footer a{color:var(--lime)}
 <body>
 
 <header>
-  <div class="brand">🌱 AGRI <span>KASHMIR</span></div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#knowledge">Knowledge</a>
-    <a href="#orchards">Orchards</a>
-    <a href="#calendar">Calendar</a>
-    <a href="#resources">Resources</a>
-    <select id="language" aria-label="Select language">
-      <option value="en">English</option>
-      <option value="ur">اردو</option>
-      <option value="ks">Kashmiri</option>
-    </select>
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="logo-icon">🌱</span>
+      Agri Kashmir
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" data-en="Home" data-ur="گھر">Home</a>
+      <a href="#knowledge" data-en="Knowledge" data-ur="معلومات">Knowledge</a>
+      <a href="#orchards" data-en="Apple Farming" data-ur="سیب کی کاشت">Apple Farming</a>
+      <a href="#calendar" data-en="Calendar" data-ur="کیلنڈر">Calendar</a>
+      <a href="#resources" data-en="Resources" data-ur="وسائل">Resources</a>
+      <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ur">اردو</option>
+        <option value="ks">Kashmiri (Beta)</option>
+      </select>
+    </div>
   </nav>
 </header>
 
 <main>
+
 <section class="hero" id="home">
-  <div class="hero-content">
-    <small>AGRICULTURE • HORTICULTURE • INNOVATION</small>
-    <h1>Growing a Greener Future for Kashmir</h1>
-    <p>Your digital knowledge destination for apple orchards, modern farming, horticulture and agricultural development in Jammu & Kashmir.</p>
-    <a href="#knowledge" class="btn">Explore Knowledge →</a>
-  </div>
-</section>
-
-<div class="search-area">
-  <input id="search" type="search"
-  placeholder="Search apple diseases, farming, fertilizers, orchards..."
-  aria-label="Search agriculture information">
-  <p id="search-status" style="font-size:12px;color:#68786d;margin-top:8px">
-    Search topics available on this page.
-  </p>
-</div>
-
-<section id="about">
-  <div class="heading">
-    <h2>Welcome to Agri Kashmir</h2>
-    <p>Knowledge for farmers. Innovation for agriculture. Growth for Kashmir.</p>
-  </div>
-  <div class="grid">
-    <div class="card">
-      <div class="icon">🌱</div>
-      <h3>Our Mission</h3>
-      <p>To make useful agriculture and horticulture information accessible to farmers, growers and students.</p>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">AGRICULTURE • KNOWLEDGE • INNOVATION</div>
+      <h1>Growing a Better Future for Kashmir.</h1>
+      <p>
+        Empowering farmers with agricultural knowledge,
+        orchard management guidance and useful farming resources
+        for Jammu and Kashmir.
+      </p>
+      <div class="hero-buttons">
+        <a href="#knowledge" class="btn btn-light">Explore Knowledge →</a>
+        <a href="#resources" class="btn btn-outline">Farmer Resources</a>
+      </div>
     </div>
-    <div class="card">
-      <div class="icon">🍎</div>
-      <h3>Our Focus</h3>
-      <p>Apple production, orchard health, high-density plantation, crop management and modern farming.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🤝</div>
-      <h3>Our Vision</h3>
-      <p>To encourage informed farming decisions and sustainable agricultural development across Kashmir.</p>
+    <div class="hero-card">
+      <div class="big">🍎</div>
+      <h3>Rooted in Kashmir</h3>
+      <p>Supporting agricultural awareness, knowledge and sustainable farming practices.</p>
     </div>
   </div>
 </section>
 
-<section class="green-section" id="knowledge">
-  <div class="heading">
-    <h2>Agriculture Knowledge Centre</h2>
-    <p>Explore important farming and horticulture subjects.</p>
+<section class="container">
+  <div class="stats">
+    <div class="stat">
+      <strong>🍎 Apple</strong>
+      <small>Orchard management</small>
+    </div>
+    <div class="stat">
+      <strong>🌾 Crops</strong>
+      <small>Crop cultivation knowledge</small>
+    </div>
+    <div class="stat">
+      <strong>🌱 Soil</strong>
+      <small>Soil and nutrient awareness</small>
+    </div>
   </div>
-  <div class="grid">
-    <div class="card searchable">
-      <div class="icon">🍎</div>
+</section>
+
+<section class="container" id="knowledge">
+  <div class="section-head">
+    <span>Explore our platform</span>
+    <h2>Farming Knowledge Centre</h2>
+    <p>Explore useful agricultural topics and practical information.</p>
+  </div>
+
+  <div class="search-box">
+    <input id="searchInput" type="search"
+      placeholder="Search apple, soil, diseases, crops..."
+      oninput="searchCards()">
+  </div>
+
+  <div class="cards" id="knowledgeCards">
+
+    <article class="card">
+      <div class="card-icon">🍎</div>
       <h3>Apple Cultivation</h3>
-      <p>Learn about apple varieties, orchard establishment, pruning, pollination and harvesting.</p>
-      <a href="#orchards">Explore topic →</a>
+      <p>Learn about apple varieties, orchard planning, pruning, harvesting and post-harvest management.</p>
+      <span class="tag">Fruit Farming</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🌳</div>
+      <h3>High Density Plantation</h3>
+      <p>Understand planting systems, support structures, rootstocks, spacing and orchard management.</p>
+      <span class="tag">Modern Farming</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🐛</div>
+      <h3>Pests and Diseases</h3>
+      <p>Explore common orchard pests and diseases, symptoms and prevention approaches.</p>
+      <span class="tag">Plant Protection</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🌱</div>
+      <h3>Soil Health</h3>
+      <p>Understand soil testing, organic matter, drainage and soil fertility management.</p>
+      <span class="tag">Soil Science</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">💧</div>
+      <h3>Irrigation Management</h3>
+      <p>Learn about water management, irrigation scheduling and efficient water use.</p>
+      <span class="tag">Water Management</span>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🥬</div>
+      <h3>Vegetable Farming</h3>
+      <p>Explore vegetable cultivation, crop rotation, nursery preparation and seasonal planning.</p>
+      <span class="tag">Crop Production</span>
+    </article>
+
+  </div>
+  <p class="no-results" id="noResults">No matching topics found. Try another search.</p>
+</section>
+
+<section class="container" id="orchards">
+  <div class="highlight">
+    <div class="section-head">
+      <span>Special focus</span>
+      <h2>Apple Orchard Management</h2>
+      <p>Important areas of apple orchard care in Kashmir.</p>
     </div>
-    <div class="card searchable">
-      <div class="icon">🔬</div>
-      <h3>Diseases & Pests</h3>
-      <p>Understand common orchard diseases, symptoms, pest monitoring and prevention.</p>
-      <a href="#diseases">Explore topic →</a>
-    </div>
-    <div class="card searchable">
-      <div class="icon">🌳</div>
-      <h3>High-Density Orchards</h3>
-      <p>Explore modern plantation systems, rootstocks, tree support and orchard planning.</p>
-      <a href="#highdensity">Explore topic →</a>
-    </div>
-    <div class="card searchable">
-      <div class="icon">🧪</div>
-      <h3>Soil & Fertilizers</h3>
-      <p>Learn about soil testing, organic matter, nutrients and irrigation management.</p>
-      <a href="#soil">Explore topic →</a>
-    </div>
-    <div class="card searchable">
-      <div class="icon">📅</div>
-      <h3>Seasonal Calendar</h3>
-      <p>Understand important orchard activities throughout the year.</p>
-      <a href="#calendar">Explore topic →</a>
-    </div>
-    <div class="card searchable">
-      <div class="icon">🏛️</div>
-      <h3>Government Resources</h3>
-      <p>Find useful official agricultural departments and farmer information portals.</p>
-      <a href="#resources">Explore topic →</a>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">✂️</div>
+        <h3>Pruning</h3>
+        <p>Understand the importance of training, canopy management and appropriate pruning practices.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🌸</div>
+        <h3>Flowering</h3>
+        <p>Learn about pollination, bloom management and protecting flowers from adverse weather.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon">🧺</div>
+        <h3>Harvesting</h3>
+        <p>Understand maturity indicators, careful picking, grading and storage practices.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section id="orchards">
-  <div class="heading">
-    <h2>🍎 Apple Orchard Management</h2>
-    <p>Important practices for productive and healthy orchards.</p>
+<section class="container" id="calendar">
+  <div class="section-head">
+    <span>Seasonal awareness</span>
+    <h2>Kashmir Farming Calendar</h2>
+    <p>A general overview of seasonal agricultural activities.</p>
   </div>
-  <div class="grid">
-    <div class="info-list">
-      <h3>Orchard Establishment</h3>
-      <ul>
-        <li>Assess soil and drainage.</li>
-        <li>Choose suitable varieties and rootstocks.</li>
-        <li>Use healthy planting material.</li>
-        <li>Plan irrigation and orchard layout.</li>
-      </ul>
-    </div>
-    <div class="info-list">
-      <h3>Pruning & Training</h3>
-      <ul>
-        <li>Maintain suitable tree structure.</li>
-        <li>Remove dead and diseased branches.</li>
-        <li>Allow adequate light penetration.</li>
-        <li>Follow variety-specific practices.</li>
-      </ul>
-    </div>
-    <div class="info-list">
-      <h3>Fruit Quality</h3>
-      <ul>
-        <li>Maintain balanced nutrition.</li>
-        <li>Monitor crop load.</li>
-        <li>Manage irrigation.</li>
-        <li>Harvest at suitable maturity.</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<section class="green-section" id="diseases">
-  <div class="heading">
-    <h2>🔬 Apple Diseases & Pest Library</h2>
-    <p>Recognising orchard problems is the first step towards managing them.</p>
-  </div>
-  <div class="grid">
-    <div class="card searchable">
-      <h3>Apple Scab</h3>
-      <p><b>Symptoms:</b> Olive-green to dark spots on leaves and fruit. Fruit may develop blemishes.</p>
-      <p><b>Management:</b> Orchard sanitation, monitoring and locally recommended disease management.</p>
+  <div class="calendar">
+    <div class="month">
+      <strong>January – March</strong>
+      <p>Orchard inspection, winter protection and planning for pruning and spring operations.</p>
     </div>
-    <div class="card searchable">
-      <h3>Powdery Mildew</h3>
-      <p><b>Symptoms:</b> White powder-like growth on leaves, shoots and flower clusters.</p>
-      <p><b>Management:</b> Monitor new growth and follow locally approved recommendations.</p>
+    <div class="month">
+      <strong>April – June</strong>
+      <p>Flowering, pollination, orchard monitoring and early-season crop management.</p>
     </div>
-    <div class="card searchable">
-      <h3>Canker & Dieback</h3>
-      <p><b>Symptoms:</b> Sunken bark, dead shoots and damaged branches.</p>
-      <p><b>Management:</b> Sanitation, suitable pruning and professional diagnosis.</p>
+    <div class="month">
+      <strong>July – September</strong>
+      <p>Fruit development, irrigation management, pest monitoring and harvest preparation.</p>
     </div>
-    <div class="card searchable">
-      <h3>Insect Pest Monitoring</h3>
-      <p>Inspect leaves, shoots and fruit regularly. Use integrated pest management and protect beneficial organisms.</p>
+    <div class="month">
+      <strong>October – December</strong>
+      <p>Harvest completion, orchard sanitation, soil management and winter preparation.</p>
     </div>
   </div>
+
   <div class="notice">
-    <b>Important agricultural safety notice:</b> These are educational descriptions, not confirmed diagnoses. Verify disease identification and treatment with SKUAST-Kashmir or a qualified horticulture expert. Always follow current pesticide labels and official advisories.
+    <strong>Important:</strong> These are general seasonal guidelines.
+    Actual activities depend on crop variety, altitude, weather and local
+    agricultural advisories. Consult an agricultural expert before treatment
+    or major farm operations.
   </div>
 </section>
 
-<section id="highdensity">
-  <div class="heading">
-    <h2>🌳 High-Density Plantation Guide</h2>
-    <p>Planning modern and productive apple orchard systems.</p>
+<section class="container" id="resources">
+  <div class="section-head">
+    <span>Useful links</span>
+    <h2>Official Agricultural Resources</h2>
+    <p>Explore government platforms and agricultural institutions.</p>
   </div>
-  <div class="grid">
-    <div class="card">
-      <h3>01. Site Selection</h3>
-      <p>Evaluate climate, soil, drainage, water availability and land suitability.</p>
-    </div>
-    <div class="card">
-      <h3>02. Rootstock & Variety</h3>
-      <p>Choose suitable planting material based on location-specific technical advice.</p>
-    </div>
-    <div class="card">
-      <h3>03. Support System</h3>
-      <p>Plan trellising, tree support, training and irrigation infrastructure.</p>
-    </div>
-    <div class="card">
-      <h3>04. Orchard Management</h3>
-      <p>Maintain pruning, crop load, nutrition, irrigation and regular monitoring.</p>
-    </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="card-icon">🏛️</div>
+      <h3>Department of Agriculture J&K</h3>
+      <p>Find departmental information and agricultural initiatives.</p>
+      <a class="resource-link" href="https://agriculture.jk.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🎓</div>
+      <h3>SKUAST Kashmir</h3>
+      <p>Explore agricultural education, research and extension resources.</p>
+      <a class="resource-link" href="https://skuastkashmir.ac.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🇮🇳</div>
+      <h3>Ministry of Agriculture</h3>
+      <p>Access national agricultural information and government initiatives.</p>
+      <a class="resource-link" href="https://agriwelfare.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">🌾</div>
+      <h3>ICAR</h3>
+      <p>Explore agricultural research, scientific publications and technologies.</p>
+      <a class="resource-link" href="https://icar.org.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">💰</div>
+      <h3>PM-KISAN</h3>
+      <p>Find official information about the PM-KISAN scheme and beneficiary services.</p>
+      <a class="resource-link" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
+
+    <article class="card">
+      <div class="card-icon">📢</div>
+      <h3>MyGov India</h3>
+      <p>Discover citizen participation and government initiatives.</p>
+      <a class="resource-link" href="https://www.mygov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
+    </article>
   </div>
-  <div class="notice">High-density orchard design and investment requirements vary by site and production system. Obtain a technical plan before establishing an orchard.</div>
 </section>
 
-<section class="green-section" id="soil">
-  <div class="heading">
-    <h2>🧪 Soil Health & Nutrition</h2>
-    <p>Healthy soil supports sustainable agriculture.</p>
-  </div>
-  <div class="grid">
-    <div class="card searchable">
-      <h3>Soil Testing</h3>
-      <p>Understand pH, organic matter and nutrient status before planning fertilizer use.</p>
-    </div>
-    <div class="card searchable">
-      <h3>Organic Matter</h3>
-      <p>Use properly prepared compost and suitable organic materials.</p>
-    </div>
-    <div class="card searchable">
-      <h3>Plant Nutrition</h3>
-      <p>Base nutrient decisions on soil tests, leaf analysis and expert recommendations.</p>
-    </div>
-    <div class="card searchable">
-      <h3>Irrigation</h3>
-      <p>Maintain appropriate soil moisture and avoid waterlogging and water stress.</p>
+<section class="container">
+  <div class="cta">
+    <h2>Knowledge for Every Farmer.</h2>
+    <p>
+      Our vision is to make agricultural information more accessible
+      and encourage informed, sustainable farming across Kashmir.
+    </p>
+    <div class="hero-buttons">
+      <a href="#knowledge" class="btn btn-light">Explore the Knowledge Centre</a>
     </div>
   </div>
 </section>
 
-<section id="calendar">
-  <div class="heading">
-    <h2>📅 Kashmir Orchard Calendar</h2>
-    <p>A general guide to seasonal apple orchard activities.</p>
-  </div>
-  <div class="table-wrap">
-  <table>
-    <thead>
-      <tr><th>Season</th><th>General Orchard Activities</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Winter</td><td>Orchard sanitation, dormant pruning when suitable and planning.</td></tr>
-      <tr><td>Early Spring</td><td>Bud monitoring, orchard inspection and pollination planning.</td></tr>
-      <tr><td>Spring</td><td>Flowering observation, fruit set assessment and disease monitoring.</td></tr>
-      <tr><td>Summer</td><td>Irrigation, crop load management and pest monitoring.</td></tr>
-      <tr><td>Autumn</td><td>Harvesting, grading, storage preparation and orchard records.</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <div class="notice">Actual timing depends on altitude, weather, variety and local orchard conditions. This is not a spray schedule.</div>
-</section>
-
-<section class="green-section" id="resources">
-  <div class="heading">
-    <h2>🏛️ Official Agricultural Resources</h2>
-    <p>Useful government and research websites.</p>
-  </div>
-  <a class="resource" href="https://skuastkashmir.ac.in/" target="_blank" rel="noopener">SKUAST Kashmir – Research & Agricultural Education ↗</a>
-  <a class="resource" href="https://agricoop.nic.in/" target="_blank" rel="noopener">Department of Agriculture & Farmers Welfare ↗</a>
-  <a class="resource" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">PM-KISAN Official Portal ↗</a>
-  <a class="resource" href="https://horticulture.jk.gov.in/" target="_blank" rel="noopener">J&K Horticulture Department – Check portal availability ↗</a>
-</section>
-
-<section>
-  <div class="feature">
-    <h3>Growing Together for a Greener Kashmir 🌱</h3>
-    <p>Agri Kashmir aims to connect agricultural knowledge, modern horticulture and sustainable farming practices to support the future of Jammu & Kashmir.</p>
-  </div>
-</section>
 </main>
 
 <footer>
-  <div class="brand">AGRI <span>KASHMIR</span> 🌱</div>
-  <p>Knowledge • Innovation • Sustainable Agriculture</p>
-  <p>© <span id="year"></span> Agri Kashmir. All Rights Reserved.</p>
-  <p>Independent educational platform. Not an official government website.</p>
-  <p>Technical recommendations should be verified with authorised experts.</p>
+  <div class="footer-inner">
+    <div>
+      <h2>🌱 Agri Kashmir</h2>
+      <small>Agricultural knowledge platform for Jammu & Kashmir.</small>
+    </div>
+    <div>
+      <small>Independent educational platform. Not an official government website.</small>
+      <br>
+      <small>© <span id="year"></span> Agri Kashmir. All rights reserved.</small>
+    </div>
+  </div>
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("open");
+}
 
-const search = document.getElementById("search");
-const status = document.getElementById("search-status");
+function searchCards() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll("#knowledgeCards .card");
+  let visible = 0;
 
-search.addEventListener("input", function(){
-  const query = this.value.toLowerCase().trim();
-  const cards = document.querySelectorAll(".searchable");
-  let count = 0;
-
-  cards.forEach(function(card){
-    const match = card.textContent.toLowerCase().includes(query);
+  cards.forEach(card => {
+    const match = card.innerText.toLowerCase().includes(query);
     card.classList.toggle("hidden", !match);
-    if(match) count++;
+    if (match) visible++;
   });
 
-  status.textContent = query
-    ? count + " matching topic(s) found in the knowledge cards."
-    : "Search topics available on this page.";
-});
+  document.getElementById("noResults").style.display =
+    visible === 0 ? "block" : "none";
+}
 
-document.getElementById("language").addEventListener("change",function(){
-  if(this.value === "ur"){
-    alert("اردو کے مکمل ترجمے پر کام جاری ہے۔");
-  }else if(this.value === "ks"){
-    alert("Kashmiri translations are being developed.");
-  }else{
-    alert("English selected.");
+const translations = {
+  ur: {
+    "Home":"گھر",
+    "Knowledge":"معلومات",
+    "Apple Farming":"سیب کی کاشت",
+    "Calendar":"کیلنڈر",
+    "Resources":"وسائل"
+  },
+  ks: {
+    "Home":"گھر",
+    "Knowledge":"معلومات",
+    "Apple Farming":"سیب کی کاشت",
+    "Calendar":"کیلنڈر",
+    "Resources":"وسائل"
   }
-});
+};
+
+function changeLanguage() {
+  const lang = document.getElementById("language").value;
+  document.querySelectorAll("[data-en]").forEach(element => {
+    element.textContent =
+      lang === "en"
+      ? element.dataset.en
+      : translations[lang][element.dataset.en] || element.dataset.en;
+  });
+
+  document.documentElement.lang = lang === "ur" ? "ur" : "en";
+}
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 </script>
 
 </body>
-                                                                                                 </html>
-                                                                                                 
+        </html>
+        
