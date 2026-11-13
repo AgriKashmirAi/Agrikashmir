@@ -74,6 +74,44 @@ nav{flex-wrap:wrap}
 .container{padding:40px 17px}
 .heading h2{font-size:25px}
 }
+ 
+/* Orchard photo gallery */
+.photo-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+.photo-card{
+background:white;
+border-radius:14px;
+overflow:hidden;
+border:1px solid #e1eae2;
+}
+.photo-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+display:block;
+}
+.photo-card div{padding:16px}
+.photo-card h3{color:#103e2b}
+.photo-card p{font-size:13px;color:#718078}
+
+/* Learning diagrams */
+.diagram{
+background:white;
+padding:22px;
+border:1px solid #e1eae2;
+border-radius:14px;
+margin:15px 0;
+text-align:center;
+}
+.diagram svg{width:100%;max-width:600px;height:auto}
+.diagram h3{color:#176b45;margin-bottom:12px}
+
+@media(max-width:700px){
+.photo-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 
@@ -464,4 +502,205 @@ Use a suitable trellis, maintain soil moisture and monitor tree growth regularly
 <div class="month"><h3>January</h3><p>Winter pruning planning, orchard inspection and tool maintenance.</p></div>
 <div class="month"><h3>February</h3><p>Pruning, sanitation and preparation for the growing season.</p></div>
 <div class="month"><h3>March</h3><p>Bud development monitoring and spring orchard preparation.</p></div>
-<div class="month"><h3>April</h3><p>Flowe
+<div class="month"><h3>April</h3><p>
+ringing and pollination management. Check local flowering conditions.</p></div>
+
+<div class="month">
+<h3>May</h3>
+<p>Monitor fruit set, irrigation, nutrition and early pest activity.</p>
+</div>
+
+<div class="month">
+<h3>June</h3>
+<p>Monitor fruit development, canopy growth and water requirements.</p>
+</div>
+
+<div class="month">
+<h3>July</h3>
+<p>Continue orchard monitoring, summer pruning where appropriate and pest management.</p>
+</div>
+
+<div class="month">
+<h3>August</h3>
+<p>Monitor fruit maturity, tree health and harvesting preparations.</p>
+</div>
+
+<div class="month">
+<h3>September – October</h3>
+<p>Harvest according to variety and maturity. Grade fruit and handle it carefully.</p>
+</div>
+
+<div class="month">
+<h3>November – December</h3>
+<p>Complete sanitation, assess orchard structure and plan winter pruning.</p>
+</div>
+</div>
+</section>
+
+<!-- ORCHARD PHOTO GALLERY -->
+<section class="container" id="gallery">
+<div class="heading">
+<span>AGRI KASHMIR GALLERY</span>
+<h2>Inside Modern Apple Orchards</h2>
+<p>Explore modern high-density apple farming practices.</p>
+</div>
+
+<div class="photo-grid">
+<div class="photo-card">
+<img src="https://kashmirag.com/assets/img/bibaum-orchard-zazna.jpg" alt="Modern apple orchard" loading="lazy">
+<div>
+<h3>Modern Apple Orchard</h3>
+<p>Explore modern orchard structures and planting systems.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<img src="https://static.wixstatic.com/media/c52100_2aafefc2dd664734810a8bdeae97c309~mv2.jpeg/v1/fill/w_585%2Ch_625%2Cq_90%2Cenc_avif%2Cquality_auto/c52100_2aafefc2dd664734810a8bdeae97c309~mv2.jpeg" alt="Trellis apple orchard" loading="lazy">
+<div>
+<h3>Trellis-Based Plantation</h3>
+<p>Supporting trees with a planned orchard structure.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<img src="https://akm-img-a-in.tosshub.com/indiatoday/styles/medium_crop_simple/public/2025-05/photo_5_dsc06826_2.jpg?size=750%3A%2A" alt="Apple farming in Kashmir" loading="lazy">
+<div>
+<h3>Apple Farming in Kashmir</h3>
+<p>Learn about modern apple cultivation in the valley.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ROOTSTOCK DIAGRAM -->
+<section class="container">
+<div class="heading">
+<span>VISUAL LEARNING</span>
+<h2>Understanding Apple Rootstocks</h2>
+<p>Rootstocks influence tree vigour, size and orchard management.</p>
+</div>
+
+<div class="diagram">
+<h3>Conceptual Rootstock Comparison</h3>
+<svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+<line x1="30" y1="235" x2="570" y2="235" stroke="#795548" stroke-width="3"/>
+<g stroke="#397b48" stroke-width="5" fill="#80b978">
+<path d="M100 235 V160 M100 185 L65 145 M100 180 L135 140"/>
+<circle cx="100" cy="125" r="42"/>
+<path d="M300 235 V115 M300 155 L250 105 M300 145 L350 95"/>
+<circle cx="300" cy="85" r="58"/>
+<path d="M500 235 V70 M500 125 L440 80 M500 120 L555 75"/>
+<circle cx="500" cy="55" r="65"/>
+</g>
+<g fill="#173e2b" font-size="17" text-anchor="middle">
+<text x="100" y="265">M9</text>
+<text x="300" y="265">M26</text>
+<text x="500" y="265">MM106</text>
+</g>
+</svg>
+<p>Illustrative comparison only. Actual tree size depends on site, soil, cultivar and management.</p>
+</div>
+</section>
+
+<!-- TRELLIS DIAGRAM -->
+<section class="container">
+<div class="heading">
+<span>ORCHARD INFRASTRUCTURE</span>
+<h2>How an Apple Trellis System Works</h2>
+<p>A conceptual view of a supported high-density orchard.</p>
+</div>
+
+<div class="diagram">
+<h3>Basic Trellis Structure</h3>
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+<line x1="50" y1="250" x2="550" y2="250" stroke="#795548" stroke-width="4"/>
+<g stroke="#666" stroke-width="9">
+<line x1="90" y1="35" x2="90" y2="250"/>
+<line x1="300" y1="35" x2="300" y2="250"/>
+<line x1="510" y1="35" x2="510" y2="250"/>
+</g>
+<g stroke="#b18a42" stroke-width="3">
+<line x1="90" y1="65" x2="510" y2="65"/>
+<line x1="90" y1="115" x2="510" y2="115"/>
+<line x1="90" y1="165" x2="510" y2="165"/>
+<line x1="90" y1="215" x2="510" y2="215"/>
+</g>
+<g stroke="#397b48" stroke-width="5" fill="#80b978">
+<path d="M300 250 V65 M300 125 L250 90 M300 145 L350 105"/>
+<circle cx="300" cy="95" r="35"/>
+</g>
+<g fill="#173e2b" font-size="14">
+<text x="105" y="28">End pole</text>
+<text x="315" y="28">Intermediate pole</text>
+<text x="420" y="55">Wires</text>
+<text x="320" y="190">Tree support</text>
+</g>
+</svg>
+<p>Actual pole dimensions, wire levels and anchoring must be designed for local conditions and loads.</p>
+</div>
+</section>
+
+<!-- FARMER LEARNING CORNER -->
+<section class="container" id="learning">
+<div class="heading">
+<span>LEARN AND GROW</span>
+<h2>Farmer Learning Corner</h2>
+<p>Important practices for establishing and managing a healthy apple orchard.</p>
+</div>
+
+<div class="photo-grid">
+<div class="photo-card">
+<div>
+<h3>Before Plantation</h3>
+<p>Assess soil, drainage, slope, water availability and suitability of the site.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<div>
+<h3>Choose Quality Plants</h3>
+<p>Purchase healthy, certified and correctly identified planting material.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<div>
+<h3>Regular Monitoring</h3>
+<p>Observe leaves, shoots, flowers and fruits to identify problems early.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<div>
+<h3>Soil Testing</h3>
+<p>Use soil analysis to guide nutrient management and fertiliser decisions.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<div>
+<h3>Integrated Pest Management</h3>
+<p>Combine orchard sanitation, monitoring and appropriate control measures.</p>
+</div>
+</div>
+
+<div class="photo-card">
+<div>
+<h3>Expert Guidance</h3>
+<p>Consult local horticulture experts and SKUAST recommendations before major decisions.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p><strong>Agri Kashmir</strong> | High-Density Apple Farming</p>
+<p>Knowledge, innovation and better orchard management for Kashmir.</p>
+<p>© 2026 Agri Kashmir. Educational information only.</p>
+</footer>
+
+</main>
+</body>
+</html>
+
