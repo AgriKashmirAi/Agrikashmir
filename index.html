@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Agri Kashmir - Agriculture and horticulture information, apple orchard management, diseases, high-density plantation and farmer resources for Jammu and Kashmir.">
+<meta name="theme-color" content="#174d32">
+
+<title>Agri Kashmir | Grow Better, Grow Smarter</title>
+
+<style>
+:root {
+  --green: #174d32;
+  --green2: #246b43;
+  --light: #edf5ed;
+  --gold: #e6b94f;
+  --text: #25372c;
+  --muted: #65756a;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #f8faf7;
+  line-height: 1.65;
+}
+header {
+  background: var(--green);
+  color: white;
+  padding: 15px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.logo { font-size: 25px; font-weight: bold; }
+.logo span { color: var(--gold); }
+nav { display: flex; flex-wrap: wrap; gap: 17px; align-items: center; }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+nav a:hover { color: var(--gold); }
+select {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: white;
+  color: var(--green);
+}
+.hero {
+  min-height: 430px;
+  padding: 85px 8%;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(9,44,25,.88), rgba(9,44,25,.45)),
+    url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  display: flex;
+  align-items: center;
+}
+.hero-content { max-width: 700px; }
+.hero h1 { font-size: clamp(35px, 6vw, 57px); line-height: 1.15; margin-bottom: 18px; }
+.hero p { font-size: 18px; margin-bottom: 25px; }
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #183b25;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn:hover { background: #f1ca6d; }
+section { padding: 65px 7%; scroll-margin-top: 25px; }
+.section-title { text-align: center; margin-bottom: 35px; }
+.section-title h2 { color: var(--green); font-size: 31px; margin-bottom: 8px; }
+.section-title p { color: var(--muted); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 3px 16px rgba(0,0,0,.06);
+  border-bottom: 4px solid var(--green2);
+}
+.card .emoji { font-size: 34px; margin-bottom: 10px; }
+.card h3 { color: var(--green); margin-bottom: 9px; }
+.card p { color: var(--muted); font-size: 14px; }
+.card a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--green2);
+  font-weight: bold;
+  text-decoration: none;
+}
+.about {
+  background: var(--light);
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+.info {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+}
+.info h3 { color: var(--green); margin-bottom: 10px; }
+.info ul { padding-left: 20px; }
+.info li { margin-bottom: 8px; }
+.notice {
+  background: #fff5dc;
+  border-left: 5px solid #d6a32d;
+  padding: 18px;
+  border-radius: 7px;
+  margin-top: 25px;
+  color: #5e4b20;
+}
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 20px;
+}
+.calendar th, .calendar td {
+  padding: 13px;
+  border: 1px solid #dce5dc;
+  text-align: left;
+}
+.calendar th { background: var(--green); color: white; }
+.calendar tr:nth-child(even) { background: #f0f6f0; }
+.resources {
+  background: var(--light);
+}
+.resource-link {
+  display: block;
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+}
+.resource-link:hover { background: #e4f0e4; }
+.contact {
+  background: var(--green);
+  color: white;
+  text-align: center;
+}
+.contact h2 { font-size: 30px; margin-bottom: 12px; }
+.contact p { color: #e3eee5; }
+footer {
+  background: #102e1e;
+  color: #d5e1d7;
+  text-align: center;
+  padding: 24px 7%;
+  font-size: 13px;
+}
+footer a { color: var(--gold); }
+[dir="rtl"] { text-align: right; }
+[dir="rtl"] .notice { border-left: 0; border-right: 5px solid #d6a32d; }
+@media(max-width:700px) {
+  header { justify-content: center; }
+  nav { justify-content: center; gap: 12px; }
+  .hero { padding: 65px 7%; }
+  section { padding: 48px 6%; }
+  .calendar { font-size: 12px; }
+  .calendar th, .calendar td { padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌱 Agri <span>Kashmir</span></div>
+
+  <nav>
+    <a href="#home" data-en="Home" data-ur="صفحہ اول" data-ks="Home">Home</a>
+    <a href="#about" data-en="About" data-ur="تعارف" data-ks="About">About</a>
+    <a href="#topics" data-en="Information" data-ur="معلومات" data-ks="Information">Information</a>
+    <a href="#calendar" data-en="Calendar" data-ur="کیلنڈر" data-ks="Calendar">Calendar</a>
+    <a href="#resources" data-en="Resources" data-ur="وسائل" data-ks="Resources">Resources</a>
+
+    <select id="language" aria-label="Choose language">
+      <option value="en">English</option>
+      <option value="ur">اردو</option>
+      <option value="ks">Kashmiri</option>
+    </select>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1 data-en="Growing a Better Future for Kashmir"
+        data-ur="کشمیر کے بہتر مستقبل کی کاشت"
+        data-ks="Growing a Better Future for Kashmir">
+      Growing a Better Future for Kashmir
+    </h1>
+
+    <p data-en="Your digital guide to agriculture, horticulture, apple orchards and modern farming practices in Jammu & Kashmir."
+       data-ur="جموں و کشمیر میں زراعت، باغبانی، سیب کے باغات اور جدید کاشتکاری کے لیے آپ کی ڈیجیٹل رہنمائی۔"
+       data-ks="Your digital guide to agriculture and horticulture in Kashmir.">
+      Your digital guide to agriculture, horticulture, apple orchards and modern farming practices in Jammu & Kashmir.
+    </p>
+
+    <a href="#topics" class="btn"
+       data-en="Explore Information"
+       data-ur="معلومات دیکھیں"
+       data-ks="Explore Information">Explore Information</a>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="section-title">
+    <h2 data-en="About Agri Kashmir" data-ur="ایگری کشمیر کے بارے میں" data-ks="About Agri Kashmir">About Agri Kashmir</h2>
+    <p data-en="Knowledge for farmers. Guidance for growers. A better future for agriculture."
+       data-ur="کسانوں کے لیے علم، باغبانوں کے لیے رہنمائی، زراعت کے لیے بہتر مستقبل۔"
+       data-ks="Knowledge and guidance for agriculture.">
+      Knowledge for farmers. Guidance for growers. A better future for agriculture.
+    </p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info">
+      <h3>🌱 Our Mission</h3>
+      <p>To make useful agriculture and horticulture knowledge accessible to farmers, orchard owners, students and young growers across Jammu & Kashmir.</p>
+    </div>
+    <div class="info">
+      <h3>🍎 Our Focus</h3>
+      <p>Apple cultivation, orchard diseases, pest awareness, high-density plantations, soil health and seasonal farming guidance.</p>
+    </div>
+    <div class="info">
+      <h3>🤝 Our Vision</h3>
+      <p>To support informed farming decisions and encourage modern, sustainable and productive agriculture in Kashmir.</p>
+    </div>
+  </div>
+</section>
+
+<section id="topics">
+  <div class="section-title">
+    <h2 data-en="Agriculture Information Centre" data-ur="زرعی معلومات مرکز" data-ks="Agriculture Information Centre">Agriculture Information Centre</h2>
+    <p>Explore important topics for orchard owners and farmers.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="emoji">🍎</div>
+      <h3>Apple Orchard Management</h3>
+      <p>Learn about orchard establishment, pruning, training, pollination, fruit thinning and harvesting.</p>
+      <a href="#orchards">Explore →</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🔬</div>
+      <h3>Diseases & Pests</h3>
+      <p>Understand common apple diseases, their symptoms, prevention and integrated pest management.</p>
+      <a href="#diseases">Explore →</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🌳</div>
+      <h3>High-Density Plantation</h3>
+      <p>Learn about modern orchard systems, rootstocks, planting layouts, support systems and management.</p>
+      <a href="#highdensity">Explore →</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🧪</div>
+      <h3>Soil & Fertilizers</h3>
+      <p>Understand soil testing, nutrient management, compost, irrigation and responsible fertilizer use.</p>
+      <a href="#soil">Explore →</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">📅</div>
+      <h3>Seasonal Orchard Calendar</h3>
+      <p>Follow seasonal orchard activities and plan important work throughout the year.</p>
+      <a href="#calendar">Explore →</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🏛️</div>
+      <h3>Government Schemes</h3>
+      <p>Find official agriculture and horticulture departments and government scheme information.</p>
+      <a href="#resources">Explore →</a>
+    </div>
+  </div>
+</section>
+
+<section id="orchards" class="about">
+  <div class="section-title">
+    <h2>🍎 Apple Orchard Management</h2>
+    <p>Important practices for healthy and productive apple orchards.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info">
+      <h3>Orchard Establishment</h3>
+      <ul>
+        <li>Select a suitable site and soil.</li>
+        <li>Check soil drainage and water availability.</li>
+        <li>Choose suitable varieties and rootstocks.</li>
+        <li>Use healthy, certified planting material.</li>
+      </ul>
+    </div>
+    <div class="info">
+      <h3>Pruning & Training</h3>
+      <ul>
+        <li>Maintain a suitable tree structure.</li>
+        <li>Remove dead and diseased branches.</li>
+        <li>Allow adequate light penetration.</li>
+        <li>Follow suitable pruning practices for tree age and system.</li>
+      </ul>
+    </div>
+    <div class="info">
+      <h3>Fruit Quality</h3>
+      <ul>
+        <li>Maintain balanced nutrition.</li>
+        <li>Manage irrigation properly.</li>
+        <li>Monitor crop load.</li>
+        <li>Harvest at suitable maturity.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="diseases">
+  <div class="section-title">
+    <h2>🔬 Apple Diseases & Pest Awareness</h2>
+    <p>Learn to recognise common orchard problems.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Apple Scab</h3>
+      <p><b>Symptoms:</b> Dark olive or black spots on leaves and fruit. Severe infection may cause leaf drop and fruit blemishes.</p>
+      <p><b>Management:</b> Orchard sanitation, removal of infected leaf litter and locally recommended preventive measures.</p>
+    </div>
+
+    <div class="card">
+      <h3>Powdery Mildew</h3>
+      <p><b>Symptoms:</b> White powder-like growth on leaves, shoots and flower clusters.</p>
+      <p><b>Management:</b> Monitor new growth, remove severely affected shoots where appropriate and follow local advisory recommendations.</p>
+    </div>
+
+    <div class="card">
+      <h3>Canker & Dieback</h3>
+      <p><b>Symptoms:</b> Sunken or discoloured areas on branches, dead shoots and damaged bark.</p>
+      <p><b>Management:</b> Prune affected material appropriately, avoid injuries and seek expert diagnosis.</p>
+    </div>
+
+    <div class="card">
+      <h3>Insect Pest Monitoring</h3>
+      <p>Monitor orchards regularly for damaging insects, inspect leaves and fruit, and use integrated pest management practices.</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    <b>Important:</b> Symptoms can look similar across different diseases. Confirm the problem with a qualified horticulture expert before treatment. Always follow current SKUAST-Kashmir or government advisories and pesticide label instructions. Do not use an unverified spray schedule.
+  </div>
+</section>
+
+<section id="highdensity" class="about">
+  <div class="section-title">
+    <h2>🌳 High-Density Apple Plantation</h2>
+    <p>Modern orchard systems and better planning.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info">
+      <h3>1. Planning</h3>
+      <p>Evaluate land, climate, soil, drainage, irrigation and market requirements before establishing an orchard.</p>
+    </div>
+    <div class="info">
+      <h3>2. Planting Material</h3>
+      <p>Choose suitable varieties and rootstocks recommended for the location and production system.</p>
+    </div>
+    <div class="info">
+      <h3>3. Support System</h3>
+      <p>Plan suitable trellising, tree support, training and irrigation infrastructure.</p>
+    </div>
+    <div class="info">
+      <h3>4. Regular Management</h3>
+      <p>Maintain proper pruning, fertigation, crop load, pest monitoring and orchard records.</p>
+    </div>
+  </div>
+
+  <div class="notice">
+    High-density orchards require careful planning and technical knowledge. Obtain a location-specific design and cost estimate from a horticulture specialist before planting.
+  </div>
+</section>
+
+<section id="soil">
+  <div class="section-title">
+    <h2>🧪 Soil Health & Fertilizer Management</h2>
+    <p>Healthy soil is the foundation of productive farming.</p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Soil Testing</h3>
+      <p>Test soil to understand its pH, organic matter and nutrient status before deciding on fertilizer requirements.</p>
+    </div>
+    <div class="card">
+      <h3>Organic Matter</h3>
+      <p>Use properly prepared compost and suitable organic materials to support soil structure and biological activity.</p>
+    </div>
+    <div class="card">
+      <h3>Nutrient Management</h3>
+      <p>Base nutrient application on soil tests, leaf analysis, tree age, crop load and expert recommendations.</p>
+    </div>
+    <div class="card">
+      <h3>Irrigation</h3>
+      <p>Maintain appropriate soil moisture and avoid both prolonged waterlogging and unnecessary water stress.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calendar" class="about">
+  <div class="section-title">
+    <h2>📅 Seasonal Orchard Calendar</h2>
+    <p>A general guide to annual apple orchard activities in Kashmir.</p>
+  </div>
+
+  <table class="calendar">
+    <thead>
+      <tr>
+        <th>Season</th>
+        <th>Important Activities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Winter</td>
+        <td>Orchard sanitation, dormant pruning when appropriate, planning and equipment maintenance.</td>
+      </tr>
+      <tr>
+        <td>Early Spring</td>
+        <td>Bud development monitoring, soil assessment, pollination planning and orchard inspection.</td>
+      </tr>
+      <tr>
+        <td>Spring</td>
+        <td>Flowering observation, pollinator protection, disease monitoring and fruit set assessment.</td>
+      </tr>
+      <tr>
+        <td>Summer</td>
+        <td>Irrigation management, crop load management, pest monitoring and tree health inspection.</td>
+      </tr>
+      <tr>
+        <td>Autumn</td>
+        <td>Harvesting at suitable maturity, grading, storage preparation and orchard record keeping.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="notice">
+    This is a general calendar, not a fixed spray programme. Activities and timings vary with altitude, weather, variety and local conditions.
+  </div>
+</section>
+
+<section id="resources" class="resources">
+  <div class="section-title">
+    <h2>🏛️ Official Agriculture Resources</h2>
+    <p>Useful government and research websites.</p>
+  </div>
+
+  <a class="resource-link" href="https://skuastkashmir.ac.in/" target="_blank" rel="noopener">
+    SKUAST Kashmir – Agricultural Research & Education ↗
+  </a>
+
+  <a class="resource-link" href="https://diragrijmu.nic.in/" target="_blank" rel="noopener">
+    Directorate of Agriculture, Jammu ↗
+  </a>
+
+  <a class="resource-link" href="https://agricoop.nic.in/" target="_blank" rel="noopener">
+    Department of Agriculture & Farmers Welfare ↗
+  </a>
+
+  <a class="resource-link" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">
+    PM-KISAN Official Portal ↗
+  </a>
+
+  <a class="resource-link" href="https://horticulture.jk.gov.in/" target="_blank" rel="noopener">
+    J&K Horticulture Department – Check official portal availability ↗
+  </a>
+</section>
+
+<section class="contact">
+  <h2>Growing Together for a Greener Kashmir</h2>
+  <p>Agri Kashmir – Knowledge, Innovation and Sustainable Agriculture.</p>
+  <p style="margin-top:15px">Supporting farmers, orchard owners and future agricultural innovators.</p>
+</section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Agri Kashmir. All Rights Reserved.</p>
+  <p>Independent educational information platform. Not an official government website.</p>
+  <p>Always verify technical recommendations with authorised agricultural experts.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const languageSelect = document.getElementById("language");
+
+languageSelect.addEventListener("change", function() {
+  const lang = this.value;
+
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ur" ? "rtl" : "ltr";
+
+  document.querySelectorAll("[data-" + lang + "]").forEach(function(element) {
+    element.textContent = element.getAttribute("data-" + lang);
+  });
+});
+</script>
+
+</body>
+  </html>
+        
