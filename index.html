@@ -3,310 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Agri Kashmir - Agricultural knowledge, apple farming, orchard management and farmer resources for Jammu and Kashmir.">
-<title>Agri Kashmir | Smart Agriculture</title>
+<title>Agri Kashmir | High-Density Apple Farming</title>
 
 <style>
-:root {
-  --green:#176b45;
-  --dark:#10442f;
-  --light:#eaf5ed;
-  --lime:#b9df91;
-  --white:#ffffff;
-  --text:#25372d;
-  --muted:#718078;
-  --bg:#f7faf7;
-  --border:#e1ebe3;
+:root{
+--green:#176b45;
+--dark:#103e2b;
+--light:#eaf4ec;
+--white:#fff;
+--text:#27372e;
+--muted:#718078;
 }
-* {box-sizing:border-box;margin:0;padding:0}
-html {scroll-behavior:smooth}
-body {
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:var(--bg);
-  line-height:1.6;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Arial,sans-serif;background:#f7faf7;color:var(--text);line-height:1.7}
+header{background:white;position:sticky;top:0;z-index:10;border-bottom:1px solid #ddd}
+nav{max-width:1200px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:23px;font-weight:bold;color:var(--dark)}
+.logo span{color:var(--green)}
+nav a{text-decoration:none;color:var(--dark);font-size:13px;font-weight:bold;margin:0 8px}
+.menu{display:none;padding:8px;border:0;background:var(--light);border-radius:6px}
+.hero{background:linear-gradient(120deg,#103e2b,#23794b);color:white;padding:90px 22px}
+.hero-inner{max-width:1150px;margin:auto}
+.hero h1{font-size:clamp(38px,5vw,60px);line-height:1.15;margin:15px 0}
+.hero p{max-width:650px;color:#e1eee4}
+.eyebrow{color:#c5e7a5;font-weight:bold;letter-spacing:2px;font-size:12px}
+.btn{display:inline-block;margin-top:22px;padding:12px 20px;background:white;color:var(--dark);border-radius:7px;text-decoration:none;font-weight:bold}
+.container{max-width:1150px;margin:auto;padding:55px 22px}
+.heading{margin-bottom:24px}
+.heading span{color:var(--green);font-weight:bold;font-size:12px;letter-spacing:2px}
+.heading h2{color:var(--dark);font-size:30px;margin:5px 0}
+.heading p{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{background:white;border:1px solid #e1eae2;border-radius:13px;padding:22px}
+.card h3{color:var(--dark);margin:8px 0}
+.card p{font-size:13px;color:var(--muted)}
+.icon{font-size:32px}
+.detail{background:white;border:1px solid #e1eae2;border-radius:10px;margin:12px 0;overflow:hidden}
+summary{padding:16px 20px;cursor:pointer;font-weight:bold;color:var(--dark)}
+.detail-content{padding:5px 20px 20px;color:#59665d;font-size:14px}
+.detail-content h4{color:var(--green);margin:12px 0 5px}
+.detail-content ul{padding-left:20px}
+.detail-content li{margin:5px 0}
+.note{background:#fff7e5;padding:14px;border-left:4px solid #d5a03a;margin-top:15px;font-size:13px}
+.green-note{background:var(--light);padding:15px;border-radius:8px;margin:12px 0}
+table{width:100%;border-collapse:collapse;min-width:450px;font-size:13px}
+td,th{padding:12px;border:1px solid #ddd;text-align:left}
+th{background:var(--light);color:var(--dark)}
+.table-wrap{overflow-x:auto;margin:15px 0}
+.months{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.month{background:white;border:1px solid #ddd;border-radius:10px;padding:15px}
+.month h3{color:var(--green);font-size:15px}
+.month p{font-size:12px;color:var(--muted)}
+.future{background:var(--dark);color:white;border-radius:15px;padding:35px}
+.future p{color:#d9e9de}
+footer{background:#0b3021;color:white;padding:30px 20px;text-align:center}
+footer p{font-size:12px;color:#bad0c0}
+@media(max-width:850px){
+.menu{display:block}
+nav{flex-wrap:wrap}
+.links{display:none;width:100%;padding:15px 0}
+.links.open{display:flex;flex-direction:column;gap:14px}
+.links a{margin:0}
+.grid{grid-template-columns:repeat(2,1fr)}
 }
-a {text-decoration:none;color:inherit}
-button,input,select {font:inherit}
-header {
-  background:white;
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid var(--border);
-}
-.nav {
-  max-width:1200px;
-  margin:auto;
-  padding:14px 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-.logo {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:var(--dark);
-  font-weight:800;
-  font-size:22px;
-}
-.logo-icon {
-  background:var(--green);
-  color:white;
-  padding:8px;
-  border-radius:12px;
-}
-.nav-links {
-  display:flex;
-  align-items:center;
-  gap:23px;
-}
-.nav-links a {
-  font-size:14px;
-  font-weight:600;
-  color:#42554a;
-}
-.nav-links a:hover {color:var(--green)}
-select {
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:8px;
-  background:white;
-  color:var(--dark);
-}
-.menu-btn {
-  display:none;
-  border:0;
-  background:var(--light);
-  padding:9px 12px;
-  border-radius:8px;
-  cursor:pointer;
-}
-.hero {
-  background:linear-gradient(115deg,#103f2c,#176b45 60%,#4d9661);
-  color:white;
-  padding:85px 22px;
-}
-.hero-inner {
-  max-width:1150px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1.3fr .7fr;
-  gap:35px;
-  align-items:center;
-}
-.eyebrow {
-  color:var(--lime);
-  font-weight:700;
-  letter-spacing:2px;
-  font-size:12px;
-  text-transform:uppercase;
-}
-.hero h1 {
-  font-size:clamp(36px,5vw,59px);
-  line-height:1.13;
-  margin:17px 0;
-}
-.hero p {
-  color:#e0eee4;
-  max-width:590px;
-  font-size:17px;
-}
-.hero-buttons {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:27px;
-}
-.btn {
-  display:inline-block;
-  padding:12px 21px;
-  border-radius:9px;
-  font-weight:700;
-  border:0;
-  cursor:pointer;
-}
-.btn-light {background:white;color:var(--dark)}
-.btn-outline {border:1px solid #d5eadb;color:white}
-.hero-card {
-  background:#ffffff17;
-  border:1px solid #ffffff35;
-  border-radius:20px;
-  padding:30px;
-  text-align:center;
-}
-.hero-card .big {font-size:75px}
-.hero-card h3 {font-size:23px;margin:8px}
-.hero-card p {font-size:14px;margin:auto}
-.container {
-  max-width:1150px;
-  margin:auto;
-  padding:65px 22px;
-}
-.section-head {margin-bottom:27px}
-.section-head span {
-  color:var(--green);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.section-head h2 {
-  font-size:32px;
-  color:var(--dark);
-  margin:7px 0;
-}
-.section-head p {color:var(--muted)}
-.stats {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:-1px;
-}
-.stat {
-  background:white;
-  padding:23px;
-  border:1px solid var(--border);
-  border-radius:13px;
-}
-.stat strong {font-size:24px;color:var(--green);display:block}
-.stat small {color:var(--muted)}
-.search-box {
-  display:flex;
-  gap:10px;
-  margin:20px 0 25px;
-}
-.search-box input {
-  flex:1;
-  min-width:0;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  outline:none;
-}
-.search-box input:focus {border-color:var(--green)}
-.cards {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:19px;
-}
-.card {
-  background:white;
-  border:1px solid var(--border);
-  border-radius:15px;
-  padding:23px;
-  transition:.2s;
-}
-.card:hover {
-  transform:translateY(-4px);
-  box-shadow:0 9px 25px #174f3010;
-}
-.card-icon {font-size:33px}
-.card h3 {color:var(--dark);margin:10px 0 7px}
-.card p {color:var(--muted);font-size:14px}
-.tag {
-  display:inline-block;
-  margin-top:15px;
-  background:var(--light);
-  color:var(--green);
-  font-size:12px;
-  font-weight:700;
-  padding:5px 10px;
-  border-radius:30px;
-}
-.card.hidden {display:none}
-.no-results {
-  display:none;
-  padding:20px;
-  color:var(--muted);
-}
-.highlight {
-  background:var(--light);
-  border-radius:17px;
-  padding:35px;
-}
-.highlight h2 {color:var(--dark);margin-bottom:10px}
-.calendar {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:13px;
-  margin-top:20px;
-}
-.month {
-  background:white;
-  border:1px solid var(--border);
-  padding:18px;
-  border-radius:12px;
-}
-.month strong {color:var(--green)}
-.month p {font-size:13px;color:var(--muted);margin-top:8px}
-.notice {
-  background:#fff8e8;
-  border-left:4px solid #d69a30;
-  padding:15px;
-  border-radius:7px;
-  color:#6d5527;
-  font-size:13px;
-  margin-top:22px;
-}
-.resource-link {
-  color:var(--green);
-  font-weight:700;
-  display:inline-block;
-  margin-top:12px;
-}
-.cta {
-  background:var(--dark);
-  color:white;
-  border-radius:17px;
-  padding:40px;
-}
-.cta h2 {font-size:29px;margin-bottom:10px}
-.cta p {color:#d5e8db}
-footer {
-  background:#0c3022;
-  color:#d9e9df;
-  padding:35px 22px;
-}
-.footer-inner {
-  max-width:1150px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  flex-wrap:wrap;
-}
-footer small {color:#a9c2b1}
-footer a {color:var(--lime)}
-@media(max-width:800px) {
-  .menu-btn {display:block}
-  .nav-links {
-    display:none;
-    position:absolute;
-    top:65px;
-    left:0;
-    width:100%;
-    background:white;
-    padding:20px;
-    flex-direction:column;
-    align-items:flex-start;
-    border-bottom:1px solid var(--border);
-  }
-  .nav-links.open {display:flex}
-  .hero-inner {grid-template-columns:1fr}
-  .hero {padding:60px 20px}
-  .cards {grid-template-columns:repeat(2,1fr)}
-  .calendar {grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:520px) {
-  .cards,.stats {grid-template-columns:1fr}
-  .calendar {grid-template-columns:1fr 1fr}
-  .hero h1 {font-size:39px}
-  .container {padding:48px 17px}
-  .cta {padding:25px}
-  .section-head h2 {font-size:27px}
+@media(max-width:550px){
+.grid{grid-template-columns:1fr}
+.months{grid-template-columns:repeat(2,1fr)}
+.hero{padding:65px 20px}
+.container{padding:40px 17px}
+.heading h2{font-size:25px}
 }
 </style>
 </head>
@@ -314,328 +80,388 @@ footer a {color:var(--lime)}
 <body>
 
 <header>
-  <nav class="nav">
-    <a href="#" class="logo">
-      <span class="logo-icon">🌱</span>
-      Agri Kashmir
-    </a>
-
-    <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
-
-    <div class="nav-links" id="navLinks">
-      <a href="#home" data-en="Home" data-ur="گھر">Home</a>
-      <a href="#knowledge" data-en="Knowledge" data-ur="معلومات">Knowledge</a>
-      <a href="#orchards" data-en="Apple Farming" data-ur="سیب کی کاشت">Apple Farming</a>
-      <a href="#calendar" data-en="Calendar" data-ur="کیلنڈر">Calendar</a>
-      <a href="#resources" data-en="Resources" data-ur="وسائل">Resources</a>
-      <select id="language" onchange="changeLanguage()">
-        <option value="en">English</option>
-        <option value="ur">اردو</option>
-        <option value="ks">Kashmiri (Beta)</option>
-      </select>
-    </div>
-  </nav>
+<nav>
+<a href="#home" class="logo">🌱 Agri <span>Kashmir</span></a>
+<button class="menu" onclick="document.querySelector('.links').classList.toggle('open')">☰ Menu</button>
+<div class="links">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#rootstocks">Rootstocks</a>
+<a href="#varieties">Varieties</a>
+<a href="#plantation">Plantation</a>
+<a href="#trellis">Trellis</a>
+<a href="#management">Management</a>
+<a href="#diseases">Diseases</a>
+<a href="#calendar">Calendar</a>
+</div>
+</nav>
 </header>
 
-<main>
-
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <div>
-      <div class="eyebrow">AGRICULTURE • KNOWLEDGE • INNOVATION</div>
-      <h1>Growing a Better Future for Kashmir.</h1>
-      <p>
-        Empowering farmers with agricultural knowledge,
-        orchard management guidance and useful farming resources
-        for Jammu and Kashmir.
-      </p>
-      <div class="hero-buttons">
-        <a href="#knowledge" class="btn btn-light">Explore Knowledge →</a>
-        <a href="#resources" class="btn btn-outline">Farmer Resources</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <div class="big">🍎</div>
-      <h3>Rooted in Kashmir</h3>
-      <p>Supporting agricultural awareness, knowledge and sustainable farming practices.</p>
-    </div>
-  </div>
+<div class="hero-inner">
+<div class="eyebrow">MODERN HORTICULTURE • JAMMU & KASHMIR</div>
+<h1>Growing the Future of Kashmir's Apple Industry.</h1>
+<p>Agri Kashmir is a dedicated knowledge platform for high-density apple farming, modern orchard systems, scientific cultivation and sustainable apple production.</p>
+<a href="#knowledge" class="btn">Explore Knowledge →</a>
+</div>
 </section>
 
-<section class="container">
-  <div class="stats">
-    <div class="stat">
-      <strong>🍎 Apple</strong>
-      <small>Orchard management</small>
-    </div>
-    <div class="stat">
-      <strong>🌾 Crops</strong>
-      <small>Crop cultivation knowledge</small>
-    </div>
-    <div class="stat">
-      <strong>🌱 Soil</strong>
-      <small>Soil and nutrient awareness</small>
-    </div>
-  </div>
+<section class="container" id="about">
+<div class="heading">
+<span>WELCOME TO AGRI KASHMIR</span>
+<h2>High-Density Apple Farming</h2>
+<p>Modern knowledge for the next generation of Kashmiri apple growers.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="icon">🌱</div><h3>Scientific Farming</h3><p>Understand modern cultivation methods and orchard technologies.</p></div>
+<div class="card"><div class="icon">🍎</div><h3>Better Fruit Quality</h3><p>Learn about varieties, canopy management and fruit development.</p></div>
+<div class="card"><div class="icon">🌳</div><h3>Modern Orchards</h3><p>Explore efficient orchard design and high-density systems.</p></div>
+</div>
 </section>
 
 <section class="container" id="knowledge">
-  <div class="section-head">
-    <span>Explore our platform</span>
-    <h2>Farming Knowledge Centre</h2>
-    <p>Explore useful agricultural topics and practical information.</p>
-  </div>
-
-  <div class="search-box">
-    <input id="searchInput" type="search"
-      placeholder="Search apple, soil, diseases, crops..."
-      oninput="searchCards()">
-  </div>
-
-  <div class="cards" id="knowledgeCards">
-
-    <article class="card">
-      <div class="card-icon">🍎</div>
-      <h3>Apple Cultivation</h3>
-      <p>Learn about apple varieties, orchard planning, pruning, harvesting and post-harvest management.</p>
-      <span class="tag">Fruit Farming</span>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🌳</div>
-      <h3>High Density Plantation</h3>
-      <p>Understand planting systems, support structures, rootstocks, spacing and orchard management.</p>
-      <span class="tag">Modern Farming</span>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🐛</div>
-      <h3>Pests and Diseases</h3>
-      <p>Explore common orchard pests and diseases, symptoms and prevention approaches.</p>
-      <span class="tag">Plant Protection</span>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🌱</div>
-      <h3>Soil Health</h3>
-      <p>Understand soil testing, organic matter, drainage and soil fertility management.</p>
-      <span class="tag">Soil Science</span>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">💧</div>
-      <h3>Irrigation Management</h3>
-      <p>Learn about water management, irrigation scheduling and efficient water use.</p>
-      <span class="tag">Water Management</span>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🥬</div>
-      <h3>Vegetable Farming</h3>
-      <p>Explore vegetable cultivation, crop rotation, nursery preparation and seasonal planning.</p>
-      <span class="tag">Crop Production</span>
-    </article>
-
-  </div>
-  <p class="no-results" id="noResults">No matching topics found. Try another search.</p>
+<div class="heading">
+<span>KNOWLEDGE CENTRE</span>
+<h2>Explore Apple Farming Topics</h2>
+<p>Detailed learning resources organised by subject.</p>
+</div>
+<div class="grid">
+<a class="card" href="#rootstocks"><div class="icon">🌱</div><h3>Rootstocks</h3><p>M9, M26, MM106 and rootstock selection.</p></a>
+<a class="card" href="#varieties"><div class="icon">🍎</div><h3>Apple Varieties</h3><p>Gala, Fuji, Red Delicious and more.</p></a>
+<a class="card" href="#plantation"><div class="icon">📐</div><h3>Plantation & Spacing</h3><p>Orchard layout, density and planting.</p></a>
+<a class="card" href="#trellis"><div class="icon">🏗️</div><h3>Trellis System</h3><p>Poles, wires, anchors and tree support.</p></a>
+<a class="card" href="#management"><div class="icon">✂️</div><h3>Pruning & Training</h3><p>Central leader and canopy management.</p></a>
+<a class="card" href="#fertigation"><div class="icon">💧</div><h3>Irrigation & Fertigation</h3><p>Water and nutrient management.</p></a>
+</div>
 </section>
 
-<section class="container" id="orchards">
-  <div class="highlight">
-    <div class="section-head">
-      <span>Special focus</span>
-      <h2>Apple Orchard Management</h2>
-      <p>Important areas of apple orchard care in Kashmir.</p>
-    </div>
+<!-- ROOTSTOCKS -->
+<section class="container" id="rootstocks">
+<div class="heading">
+<span>01 • ROOTSTOCKS</span>
+<h2>Understanding Apple Rootstocks</h2>
+<p>Rootstocks influence tree size, vigour, anchorage, early bearing and orchard management.</p>
+</div>
 
-    <div class="cards">
-      <article class="card">
-        <div class="card-icon">✂️</div>
-        <h3>Pruning</h3>
-        <p>Understand the importance of training, canopy management and appropriate pruning practices.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">🌸</div>
-        <h3>Flowering</h3>
-        <p>Learn about pollination, bloom management and protecting flowers from adverse weather.</p>
-      </article>
-      <article class="card">
-        <div class="card-icon">🧺</div>
-        <h3>Harvesting</h3>
-        <p>Understand maturity indicators, careful picking, grading and storage practices.</p>
-      </article>
-    </div>
-  </div>
+<details class="detail">
+<summary>M9 — Dwarfing Rootstock</summary>
+<div class="detail-content">
+<h4>Characteristics</h4>
+<ul>
+<li>Strongly dwarfing rootstock.</li>
+<li>Widely used in intensive apple orchards.</li>
+<li>Encourages early bearing under suitable management.</li>
+<li>Usually needs permanent support due to limited anchorage.</li>
+<li>Requires careful water and nutrient management.</li>
+</ul>
+<h4>Management</h4>
+Use a suitable trellis, maintain soil moisture and monitor tree growth regularly.
+</div>
+</details>
+
+<details class="detail">
+<summary>M26 — Semi-Dwarfing Rootstock</summary>
+<div class="detail-content">
+<ul>
+<li>Produces larger trees than M9.</li>
+<li>Can offer a balance between vigour and productivity.</li>
+<li>Support needs depend on orchard conditions.</li>
+<li>Requires attention to soil drainage and collar rot risk.</li>
+</ul>
+</div>
+</details>
+
+<details class="detail">
+<summary>MM106 — Semi-Vigorous Rootstock</summary>
+<div class="detail-content">
+<ul>
+<li>Generally produces larger trees than dwarfing rootstocks.</li>
+<li>Needs spacing appropriate to its vigour.</li>
+<li>Soil drainage is an important consideration.</li>
+<li>Can be vulnerable to collar rot in poorly drained soils.</li>
+</ul>
+</div>
+</details>
+
+<details class="detail">
+<summary>Rootstock Comparison</summary>
+<div class="detail-content">
+<div class="table-wrap">
+<table>
+<tr><th>Rootstock</th><th>Vigour</th><th>Key consideration</th></tr>
+<tr><td>M9</td><td>Dwarfing</td><td>Permanent support generally needed</td></tr>
+<tr><td>M26</td><td>Semi-dwarfing</td><td>Drainage and anchorage</td></tr>
+<tr><td>MM106</td><td>Semi-vigorous</td><td>Spacing and drainage</td></tr>
+</table>
+</div>
+</div>
+</details>
+<div class="note">Rootstock suitability depends on soil, elevation, drainage, irrigation, variety and local recommendations. Always verify planting material before purchase.</div>
 </section>
 
+<!-- VARIETIES -->
+<section class="container" id="varieties">
+<div class="heading">
+<span>02 • APPLE VARIETIES</span>
+<h2>Commercial Apple Varieties</h2>
+<p>Understand important varieties and their general characteristics.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="icon">🍎</div><h3>Gala</h3><p>Sweet, crisp fruit with several colour strains. Popular in fresh markets.</p></div>
+<div class="card"><div class="icon">🍎</div><h3>Fuji</h3><p>Known for sweetness, crisp texture and good storage potential.</p></div>
+<div class="card"><div class="icon">🍎</div><h3>Red Delicious</h3><p>Recognised by its red appearance and established commercial market.</p></div>
+<div class="card"><div class="icon">🍏</div><h3>Golden Delicious</h3><p>Yellow-green fruit with a sweet flavour. Also used in pollination planning.</p></div>
+<div class="card"><div class="icon">🍏</div><h3>Granny Smith</h3><p>Green, tart apple used in fresh consumption and processing.</p></div>
+<div class="card"><div class="icon">🌸</div><h3>Pollinizer Varieties</h3><p>Compatible flowering varieties help provide pollen for fruit set.</p></div>
+</div>
+</section>
+
+<!-- PLANTATION -->
+<section class="container" id="plantation">
+<div class="heading">
+<span>03 • PLANTATION</span>
+<h2>Plantation & Orchard Spacing</h2>
+<p>Good planning begins before the first tree is planted.</p>
+</div>
+<details class="detail">
+<summary>Land Selection and Preparation</summary>
+<div class="detail-content">
+<ul>
+<li>Evaluate soil depth, texture and fertility.</li>
+<li>Check drainage and water availability.</li>
+<li>Assess slope, sunlight and frost exposure.</li>
+<li>Conduct soil testing before nutrient application.</li>
+<li>Plan access paths and irrigation before planting.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Understanding Planting Density</summary>
+<div class="detail-content">
+<p>Planting density is the number of trees established per unit area.</p>
+<div class="green-note"><b>Trees per hectare = 10,000 ÷ (row spacing × tree spacing)</b></div>
+<p>Example: 3 m row spacing × 1 m tree spacing = approximately 3,333 trees per hectare.</p>
+<p>This is only a mathematical example, not a recommendation for every orchard.</p>
+</div>
+</details>
+<details class="detail">
+<summary>Planting Procedure</summary>
+<div class="detail-content">
+<ul>
+<li>Purchase healthy, certified nursery plants.</li>
+<li>Confirm variety and rootstock identity.</li>
+<li>Follow the planned row layout.</li>
+<li>Keep the graft union above the soil level.</li>
+<li>Avoid root damage and water appropriately.</li>
+<li>Establish tree support where required.</li>
+</ul>
+</div>
+</details>
+<div class="note">Spacing depends on rootstock, variety, soil fertility, elevation, training system and local technical recommendations.</div>
+</section>
+
+<!-- TRELLIS -->
+<section class="container" id="trellis">
+<div class="heading">
+<span>04 • TRELLIS SYSTEM</span>
+<h2>Building a Strong Orchard Support System</h2>
+<p>Trellis systems support young trees and help maintain orchard structure.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="icon">🪵</div><h3>End Poles</h3><p>Strong poles at row ends resist the tension of the wire system.</p></div>
+<div class="card"><div class="icon">🏗️</div><h3>Intermediate Poles</h3><p>Support wires along the orchard row.</p></div>
+<div class="card"><div class="icon">〰️</div><h3>Wires</h3><p>Provide attachment points for tree leaders and branches.</p></div>
+<div class="card"><div class="icon">⚓</div><h3>Anchors</h3><p>Secure the trellis and help resist structural loads.</p></div>
+<div class="card"><div class="icon">🌳</div><h3>Tree Ties</h3><p>Guide young trees while preventing trunk injury.</p></div>
+<div class="card"><div class="icon">🔧</div><h3>Maintenance</h3><p>Inspect poles, wires, anchors and ties regularly.</p></div>
+</div>
+<details class="detail">
+<summary>Why is a trellis important?</summary>
+<div class="detail-content">
+<ul>
+<li>Supports slender trees and central leaders.</li>
+<li>Helps manage crop load.</li>
+<li>Maintains the planned tree row.</li>
+<li>Supports systematic pruning and training.</li>
+<li>Helps manage canopy structure.</li>
+</ul>
+</div>
+</details>
+<div class="note">Pole dimensions, wire specifications and anchoring must be designed for soil conditions, wind exposure, row length and expected crop load.</div>
+</section>
+
+<!-- MANAGEMENT -->
+<section class="container" id="management">
+<div class="heading">
+<span>05 • ORCHARD MANAGEMENT</span>
+<h2>Training, Pruning & Canopy Management</h2>
+<p>Balanced tree architecture helps improve light distribution and orchard management.</p>
+</div>
+<details class="detail">
+<summary>Central Leader System</summary>
+<div class="detail-content">
+<p>A central leader system maintains one dominant vertical trunk with well-distributed lateral branches.</p>
+<ul>
+<li>Maintain a strong central leader.</li>
+<li>Develop suitably positioned lateral branches.</li>
+<li>Manage competing upright shoots.</li>
+<li>Maintain light penetration into the canopy.</li>
+<li>Use suitable ties and supports for young trees.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Winter Pruning</summary>
+<div class="detail-content">
+<ul>
+<li>Remove dead, damaged and diseased branches.</li>
+<li>Manage excessive and competing growth.</li>
+<li>Maintain the planned canopy structure.</li>
+<li>Use clean, sharp pruning tools.</li>
+<li>Avoid unnecessary removal of productive wood.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Summer Pruning</summary>
+<div class="detail-content">
+<p>Summer pruning may be used to manage vigorous shoots and improve light distribution. Its timing and intensity should match the cultivar, tree age and orchard condition.</p>
+</div>
+</details>
+</section>
+
+<!-- FERTIGATION -->
+<section class="container" id="fertigation">
+<div class="heading">
+<span>06 • WATER & NUTRITION</span>
+<h2>Irrigation & Fertigation</h2>
+<p>Healthy roots need balanced water and nutrients.</p>
+</div>
+<details class="detail">
+<summary>Drip Irrigation</summary>
+<div class="detail-content">
+<ul>
+<li>Delivers water close to the root zone.</li>
+<li>Can improve water-use efficiency.</li>
+<li>Requires regular inspection of emitters and filters.</li>
+<li>Monitor soil moisture rather than relying only on a fixed schedule.</li>
+<li>Adjust irrigation according to weather and tree growth.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Fertigation</summary>
+<div class="detail-content">
+<p>Fertigation is the application of suitable soluble nutrients through an irrigation system.</p>
+<ul>
+<li>Base nutrient decisions on soil and leaf analysis.</li>
+<li>Use compatible, water-soluble fertilizers.</li>
+<li>Follow recommended concentrations and application timings.</li>
+<li>Monitor pH, water quality and emitter performance.</li>
+<li>Avoid over-fertilisation.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Important Nutrients</summary>
+<div class="detail-content">
+<ul>
+<li><b>Nitrogen:</b> Supports vegetative growth.</li>
+<li><b>Phosphorus:</b> Involved in energy transfer and root functions.</li>
+<li><b>Potassium:</b> Important for fruit development and plant regulation.</li>
+<li><b>Calcium:</b> Important for fruit firmness and tissue integrity.</li>
+<li><b>Boron and Zinc:</b> Essential micronutrients involved in plant growth and reproductive processes.</li>
+</ul>
+</div>
+</details>
+<div class="note">Fertilizer quantities must be based on soil tests, leaf analysis, tree age, crop load and local horticulture recommendations.</div>
+</section>
+
+<!-- DISEASES -->
+<section class="container" id="diseases">
+<div class="heading">
+<span>07 • PLANT HEALTH</span>
+<h2>Apple Diseases & Pest Management</h2>
+<p>Early identification and integrated management protect orchard health.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="icon">🍂</div><h3>Apple Scab</h3><p>Fungal disease that can cause dark, scabby lesions on leaves and fruit.</p></div>
+<div class="card"><div class="icon">🌫️</div><h3>Powdery Mildew</h3><p>Can produce white powdery growth on leaves and young shoots.</p></div>
+<div class="card"><div class="icon">🌳</div><h3>Canker</h3><p>Can cause damaged bark, sunken lesions and branch dieback.</p></div>
+<div class="card"><div class="icon">🐛</div><h3>Codling Moth</h3><p>Larvae damage apples by tunnelling into fruit.</p></div>
+<div class="card"><div class="icon">🐜</div><h3>Aphids</h3><p>Sap-feeding insects that can distort young leaves and shoots.</p></div>
+<div class="card"><div class="icon">🔬</div><h3>Mites</h3><p>Small pests that can damage leaves and affect tree health.</p></div>
+</div>
+<details class="detail">
+<summary>Integrated Pest Management (IPM)</summary>
+<div class="detail-content">
+<ul>
+<li>Regularly inspect leaves, shoots, branches and fruit.</li>
+<li>Maintain orchard sanitation.</li>
+<li>Remove and manage infected plant material appropriately.</li>
+<li>Monitor pest populations and disease conditions.</li>
+<li>Encourage beneficial organisms where appropriate.</li>
+<li>Use only locally approved plant-protection products according to label directions and expert advice.</li>
+</ul>
+</div>
+</details>
+</section>
+
+<!-- POLLINATION -->
+<section class="container" id="pollination">
+<div class="heading">
+<span>08 • FLOWERING & FRUIT SET</span>
+<h2>Pollination & Fruit Development</h2>
+<p>Successful fruit set depends on compatible pollen, flowering overlap and pollinator activity.</p>
+</div>
+<div class="grid">
+<div class="card"><div class="icon">🌸</div><h3>Flowering</h3><p>Flowering time varies with cultivar, elevation and seasonal weather.</p></div>
+<div class="card"><div class="icon">🐝</div><h3>Pollinators</h3><p>Bees and other pollinating insects help transfer pollen between flowers.</p></div>
+<div class="card"><div class="icon">🍎</div><h3>Fruit Set</h3><p>Successful pollination and fertilisation support fruit development.</p></div>
+</div>
+</section>
+
+<!-- HARVEST -->
+<section class="container" id="harvest">
+<div class="heading">
+<span>09 • POST-HARVEST</span>
+<h2>Harvesting, Grading & Storage</h2>
+<p>Good post-harvest practices help preserve fruit quality.</p>
+</div>
+<details class="detail">
+<summary>Harvesting</summary>
+<div class="detail-content">
+<ul>
+<li>Determine maturity using appropriate maturity indicators.</li>
+<li>Harvest carefully to avoid bruising.</li>
+<li>Handle fruit gently and use clean picking containers.</li>
+<li>Avoid harvesting solely by fruit colour.</li>
+</ul>
+</div>
+</details>
+<details class="detail">
+<summary>Grading and Storage</summary>
+<div class="detail-content">
+<ul>
+<li>Sort fruit by size, colour and quality.</li>
+<li>Separate damaged and diseased fruit.</li>
+<li>Use suitable packaging.</li>
+<li>Maintain recommended storage temperature and humidity.</li>
+<li>Monitor storage conditions regularly.</li>
+</ul>
+</div>
+</details>
+</section>
+
+<!-- CALENDAR -->
 <section class="container" id="calendar">
-  <div class="section-head">
-    <span>Seasonal awareness</span>
-    <h2>Kashmir Farming Calendar</h2>
-    <p>A general overview of seasonal agricultural activities.</p>
-  </div>
-
-  <div class="calendar">
-    <div class="month">
-      <strong>January – March</strong>
-      <p>Orchard inspection, winter protection and planning for pruning and spring operations.</p>
-    </div>
-    <div class="month">
-      <strong>April – June</strong>
-      <p>Flowering, pollination, orchard monitoring and early-season crop management.</p>
-    </div>
-    <div class="month">
-      <strong>July – September</strong>
-      <p>Fruit development, irrigation management, pest monitoring and harvest preparation.</p>
-    </div>
-    <div class="month">
-      <strong>October – December</strong>
-      <p>Harvest completion, orchard sanitation, soil management and winter preparation.</p>
-    </div>
-  </div>
-
-  <div class="notice">
-    <strong>Important:</strong> These are general seasonal guidelines.
-    Actual activities depend on crop variety, altitude, weather and local
-    agricultural advisories. Consult an agricultural expert before treatment
-    or major farm operations.
-  </div>
-</section>
-
-<section class="container" id="resources">
-  <div class="section-head">
-    <span>Useful links</span>
-    <h2>Official Agricultural Resources</h2>
-    <p>Explore government platforms and agricultural institutions.</p>
-  </div>
-
-  <div class="cards">
-    <article class="card">
-      <div class="card-icon">🏛️</div>
-      <h3>Department of Agriculture J&K</h3>
-      <p>Find departmental information and agricultural initiatives.</p>
-      <a class="resource-link" href="https://agriculture.jk.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🎓</div>
-      <h3>SKUAST Kashmir</h3>
-      <p>Explore agricultural education, research and extension resources.</p>
-      <a class="resource-link" href="https://skuastkashmir.ac.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🇮🇳</div>
-      <h3>Ministry of Agriculture</h3>
-      <p>Access national agricultural information and government initiatives.</p>
-      <a class="resource-link" href="https://agriwelfare.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">🌾</div>
-      <h3>ICAR</h3>
-      <p>Explore agricultural research, scientific publications and technologies.</p>
-      <a class="resource-link" href="https://icar.org.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">💰</div>
-      <h3>PM-KISAN</h3>
-      <p>Find official information about the PM-KISAN scheme and beneficiary services.</p>
-      <a class="resource-link" href="https://pmkisan.gov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">📢</div>
-      <h3>MyGov India</h3>
-      <p>Discover citizen participation and government initiatives.</p>
-      <a class="resource-link" href="https://www.mygov.in/" target="_blank" rel="noopener">Visit Website ↗</a>
-    </article>
-  </div>
-</section>
-
-<section class="container">
-  <div class="cta">
-    <h2>Knowledge for Every Farmer.</h2>
-    <p>
-      Our vision is to make agricultural information more accessible
-      and encourage informed, sustainable farming across Kashmir.
-    </p>
-    <div class="hero-buttons">
-      <a href="#knowledge" class="btn btn-light">Explore the Knowledge Centre</a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <h2>🌱 Agri Kashmir</h2>
-      <small>Agricultural knowledge platform for Jammu & Kashmir.</small>
-    </div>
-    <div>
-      <small>Independent educational platform. Not an official government website.</small>
-      <br>
-      <small>© <span id="year"></span> Agri Kashmir. All rights reserved.</small>
-    </div>
-  </div>
-</footer>
-
-<script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("open");
-}
-
-function searchCards() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
-  const cards = document.querySelectorAll("#knowledgeCards .card");
-  let visible = 0;
-
-  cards.forEach(card => {
-    const match = card.innerText.toLowerCase().includes(query);
-    card.classList.toggle("hidden", !match);
-    if (match) visible++;
-  });
-
-  document.getElementById("noResults").style.display =
-    visible === 0 ? "block" : "none";
-}
-
-const translations = {
-  ur: {
-    "Home":"گھر",
-    "Knowledge":"معلومات",
-    "Apple Farming":"سیب کی کاشت",
-    "Calendar":"کیلنڈر",
-    "Resources":"وسائل"
-  },
-  ks: {
-    "Home":"گھر",
-    "Knowledge":"معلومات",
-    "Apple Farming":"سیب کی کاشت",
-    "Calendar":"کیلنڈر",
-    "Resources":"وسائل"
-  }
-};
-
-function changeLanguage() {
-  const lang = document.getElementById("language").value;
-  document.querySelectorAll("[data-en]").forEach(element => {
-    element.textContent =
-      lang === "en"
-      ? element.dataset.en
-      : translations[lang][element.dataset.en] || element.dataset.en;
-  });
-
-  document.documentElement.lang = lang === "ur" ? "ur" : "en";
-}
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
-
-</body>
-        </html>
-        
+<div class="heading">
+<span>10 • KASHMIR ORCHARD CALENDAR</span>
+<h2>Seasonal Apple Orchard Activities</h2>
+<p>A general activity guide. Actual timings vary with elevation and weather.</p>
+</div>
+<div class="months">
+<div class="month"><h3>January</h3><p>Winter pruning planning, orchard inspection and tool maintenance.</p></div>
+<div class="month"><h3>February</h3><p>Pruning, sanitation and preparation for the growing season.</p></div>
+<div class="month"><h3>March</h3><p>Bud development monitoring and spring orchard preparation.</p></div>
+<div class="month"><h3>April</h3><p>Flowe
