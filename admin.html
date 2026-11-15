@@ -1,1 +1,605 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agri Kashmir AI | Admin</title>
+<style>
+:root {
+  --green:#176b45;
+  --dark:#123b2b;
+  --bg:#f4f7f4;
+  --white:#fff;
+  --muted:#718078;
+  --border:#e2e9e3;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:#20372b;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+header{
+  background:var(--dark);
+  color:white;
+  padding:18px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.brand{font-size:19px;font-weight:bold}
+.brand small{display:block;font-size:11px;font-weight:normal;margin-top:5px;color:#c6dfce}
+main{max-width:1150px;margin:auto;padding:24px 16px}
+.panel{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:22px;
+  margin-bottom:18px;
+}
+.login{
+  max-width:410px;
+  margin:65px auto;
+}
+h1{font-size:25px;margin:0 0 8px}
+h2{font-size:19px;margin:0 0 16px}
+.muted{color:var(--muted);font-size:13px}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin:7px 0 14px;
+  border:1px solid #dce5dd;
+  border-radius:7px;
+  background:white;
+  color:#20372b;
+}
+textarea{min-height:100px;resize:vertical}
+label{font-size:13px;font-weight:bold}
+.btn{
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:7px;
+  padding:11px 16px;
+  font-weight:bold;
+}
+.btn.secondary{background:#eaf2eb;color:var(--dark)}
+.btn.danger{background:#b83b36}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.nav{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+.nav button{
+  border:1px solid var(--border);
+  background:white;
+  border-radius:8px;
+  padding:11px 13px;
+  color:#294b38;
+}
+.nav button.active{
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:12px;
+  margin-bottom:20px;
+}
+.stat{
+  padding:17px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+.stat strong{font-size:25px;display:block;margin-top:8px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.record{
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:9px;
+  margin:10px 0;
+  background:white;
+}
+.record-title{font-weight:bold;overflow-wrap:anywhere}
+.record-meta{font-size:12px;color:var(--muted);margin:7px 0}
+.message{padding:12px;border-radius:7px;margin:12px 0;font-size:13px}
+.error{background:#fff0ef;color:#a32b25}
+.success{background:#eaf7ee;color:#176b45}
+#loading{color:var(--muted);padding:15px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:25px}
+@media(max-width:550px){
+ main{padding:15px 10px}
+ .panel{padding:16px}
+ header{padding:15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    🌱 Agri Kashmir AI
+    <small>Administration Dashboard</small>
+  </div>
+  <button id="logout" class="btn danger hidden">Logout</button>
+</header>
+
+<main>
+  <section id="loginPanel" class="panel login">
+    <h1>Admin Login</h1>
+    <p class="muted">Sign in to manage Agri Kashmir AI.</p>
+    <form id="loginForm">
+      <label>Username</label>
+      <input id="username" required autocomplete="username">
+      <label>Password</label>
+      <input id="password" type="password" required autocomplete="current-password">
+      <button class="btn" style="width:100%" id="loginButton">Login</button>
+    </form>
+    <div id="loginMessage" aria-live="polite"></div>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <div class="panel">
+      <h1>Welcome, Admin 👋</h1>
+      <p class="muted">Manage your Kashmir agriculture knowledge platform.</p>
+      <div id="connectionStatus" class="message success">
+        Connected to Agri Kashmir AI backend.
+      </div>
+    </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div class="nav" id="navigation"></div>
+
+    <section class="panel">
+      <div class="actions" style="justify-content:space-between;align-items:center">
+        <div>
+          <h2 id="sectionTitle">Articles</h2>
+          <p class="muted" id="sectionDescription">Manage your records.</p>
+        </div>
+        <button class="btn" id="addButton">+ Add New</button>
+      </div>
+      <div id="recordList"></div>
+      <div id="loading" class="hidden">Loading...</div>
+    </section>
+
+    <section id="editor" class="panel hidden">
+      <h2 id="editorTitle">Add Record</h2>
+      <form id="recordForm">
+        <div id="formFields"></div>
+        <div class="actions">
+          <button class="btn" type="submit" id="saveButton">Save Record</button>
+          <button class="btn secondary" type="button" id="cancelButton">Cancel</button>
+        </div>
+      </form>
+      <div id="formMessage" aria-live="polite"></div>
+    </section>
+  </section>
+</main>
+
+<footer>Agri Kashmir AI · Powered by Agriculture Knowledge</footer>
+
+<script>
+"use strict";
+
+const API = "https://agri-kashmir-admin.agrikashmir194.workers.dev/api";
+
+const TABLES = [
+  "articles",
+  "farming_tips",
+  "announcements",
+  "apple_varieties",
+  "rootstocks"
+];
+
+const TITLES = {
+  articles:"Articles",
+  farming_tips:"Farming Tips",
+  announcements:"Announcements",
+  apple_varieties:"Apple Varieties",
+  rootstocks:"Rootstocks"
+};
+
+const DESCRIPTIONS = {
+  articles:"Publish and manage agriculture articles.",
+  farming_tips:"Add useful farming tips for farmers.",
+  announcements:"Manage important agricultural announcements.",
+  apple_varieties:"Manage apple variety information.",
+  rootstocks:"Manage rootstock information."
+};
+
+let token = sessionStorage.getItem("agri_admin_token") || "";
+let currentTable = TABLES[0];
+let tableInfo = {};
+let currentRecords = [];
+let editingRecord = null;
+
+const $ = id => document.getElementById(id);
+
+function showMessage(element, message, type) {
+  element.className = "message " + type;
+  element.textContent = message;
+}
+
+async function api(path, options = {}) {
+  const headers = {
+    ...(options.headers || {})
+  };
+
+  if (token) headers.Authorization = "Bearer " + token;
+
+  if (options.body) headers["Content-Type"] = "application/json";
+
+  const response = await fetch(API + path, {
+    ...options,
+    headers
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (response.status === 401) {
+    logout();
+    throw new Error(data.error || "Session expired. Please login again.");
+  }
+
+  if (!response.ok || data.success === false) {
+    throw new Error(data.error || "Request failed.");
+  }
+
+  return data;
+}
+
+function logout() {
+  token = "";
+  sessionStorage.removeItem("agri_admin_token");
+  $("dashboard").classList.add("hidden");
+  $("loginPanel").classList.remove("hidden");
+  $("logout").classList.add("hidden");
+  $("password").value = "";
+}
+
+$("loginForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const button = $("loginButton");
+  button.disabled = true;
+  button.textContent = "Signing in...";
+
+  try {
+    const result = await api("/login", {
+      method:"POST",
+      body:JSON.stringify({
+        username:$("username").value,
+        password:$("password").value
+      })
+    });
+
+    token = result.token;
+    sessionStorage.setItem("agri_admin_token", token);
+
+    $("loginPanel").classList.add("hidden");
+    $("dashboard").classList.remove("hidden");
+    $("logout").classList.remove("hidden");
+
+    $("loginMessage").textContent = "";
+    await initializeDashboard();
+
+  } catch(error) {
+    showMessage($("loginMessage"), error.message, "error");
+  } finally {
+    button.disabled = false;
+    button.textContent = "Login";
+  }
+});
+
+$("logout").addEventListener("click", logout);
+
+async function initializeDashboard() {
+  try {
+    const result = await api("/tables");
+    tableInfo = result.tables || {};
+
+    buildNavigation();
+    await showTable(currentTable);
+  } catch(error) {
+    showMessage($("connectionStatus"), error.message, "error");
+  }
+}
+
+function buildNavigation() {
+  const nav = $("navigation");
+  nav.replaceChildren();
+
+  TABLES.forEach(table => {
+    const button = document.createElement("button");
+    button.textContent = TITLES[table];
+    button.className = table === currentTable ? "active" : "";
+
+    button.addEventListener("click", async () => {
+      currentTable = table;
+      nav.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      closeEditor();
+      await showTable(table);
+    });
+
+    nav.appendChild(button);
+  });
+}
+
+async function showTable(table) {
+  $("sectionTitle").textContent = TITLES[table];
+  $("sectionDescription").textContent = DESCRIPTIONS[table];
+  $("recordList").replaceChildren();
+  $("loading").classList.remove("hidden");
+
+  try {
+    const result = await api("/" + table + "?limit=100");
+    currentRecords = result.records || [];
+    renderRecords();
+    updateStats();
+  } catch(error) {
+    $("recordList").textContent = error.message;
+  } finally {
+    $("loading").classList.add("hidden");
+  }
+}
+
+function updateStats() {
+  const stats = $("stats");
+  stats.replaceChildren();
+
+  TABLES.forEach(table => {
+    const card = document.createElement("div");
+    card.className = "stat";
+
+    const label = document.createElement("span");
+    label.className = "muted";
+    label.textContent = TITLES[table];
+
+    const value = document.createElement("strong");
+    value.textContent = table === currentTable
+      ? currentRecords.length
+      : "—";
+
+    card.append(label, value);
+    stats.appendChild(card);
+  });
+}
+
+function getPrimaryKey() {
+  const cols = tableInfo[currentTable] || [];
+  return cols.find(c => c.primaryKey)?.name || null;
+}
+
+function renderRecords() {
+  const container = $("recordList");
+  container.replaceChildren();
+
+  if (!currentRecords.length) {
+    const empty = document.createElement("p");
+    empty.className = "muted";
+    empty.textContent = "No records found. Use Add New to create your first record.";
+    container.appendChild(empty);
+    return;
+  }
+
+  const primaryKey = getPrimaryKey();
+
+  currentRecords.forEach(record => {
+    const card = document.createElement("div");
+    card.className = "record";
+
+    const title = document.createElement("div");
+    title.className = "record-title";
+
+    const preferred = ["title","name","heading","variety","question"];
+    const titleKey = preferred.find(k =>
+      Object.keys(record).some(key => key.toLowerCase() === k)
+    );
+    const actualKey = titleKey
+      ? Object.keys(record).find(k => k.toLowerCase() === titleKey)
+      : null;
+
+    title.textContent = actualKey && record[actualKey] != null
+      ? String(record[actualKey])
+      : "Record";
+
+    const meta = document.createElement("div");
+    meta.className = "record-meta";
+    meta.textContent = primaryKey
+      ? "ID: " + String(record[primaryKey])
+      : "Database record";
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+
+    const edit = document.createElement("button");
+    edit.className = "btn secondary";
+    edit.textContent = "Edit";
+    edit.addEventListener("click", () => openEditor(record));
+
+    actions.appendChild(edit);
+
+    if (primaryKey) {
+      const remove = document.createElement("button");
+      remove.className = "btn danger";
+      remove.textContent = "Delete";
+
+      remove.addEventListener("click", async () => {
+        if (!confirm("Are you sure you want to delete this record?")) return;
+
+        try {
+          await api("/" + currentTable + "/" +
+            encodeURIComponent(record[primaryKey]), {
+              method:"DELETE"
+            });
+
+          await showTable(currentTable);
+        } catch(error) {
+          alert(error.message);
+        }
+      });
+
+      actions.appendChild(remove);
+    }
+
+    card.append(title, meta, actions);
+    container.appendChild(card);
+  });
+}
+
+$("addButton").addEventListener("click", () => openEditor(null));
+
+function openEditor(record) {
+  editingRecord = record;
+  const fields = $("formFields");
+  fields.replaceChildren();
+
+  const columns = tableInfo[currentTable] || [];
+  const primaryKey = getPrimaryKey();
+
+  columns.forEach(column => {
+    if (column.name === primaryKey && !record) return;
+
+    const label = document.createElement("label");
+    label.textContent = column.name.replace(/_/g, " ");
+
+    const input = document.createElement("textarea");
+    input.rows = 2;
+    input.name = column.name;
+    input.dataset.column = column.name;
+
+    if (record && record[column.name] !== null &&
+        record[column.name] !== undefined) {
+      input.value = typeof record[column.name] === "object"
+        ? JSON.stringify(record[column.name])
+        : String(record[column.name]);
+    }
+
+    if (column.name === primaryKey) {
+      input.readOnly = true;
+    }
+
+    if (column.required && !record && column.name !== primaryKey) {
+      input.required = true;
+    }
+
+    fields.append(label, input);
+  });
+
+  $("editorTitle").textContent = record ? "Edit Record" : "Add New Record";
+  $("saveButton").textContent = record ? "Update Record" : "Save Record";
+  $("formMessage").textContent = "";
+  $("editor").classList.remove("hidden");
+  $("editor").scrollIntoView({behavior:"smooth"});
+}
+
+function closeEditor() {
+  $("editor").classList.add("hidden");
+  $("recordForm").reset();
+  editingRecord = null;
+}
+
+$("cancelButton").addEventListener("click", closeEditor);
+
+$("recordForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const button = $("saveButton");
+  button.disabled = true;
+  button.textContent = "Saving...";
+
+  try {
+    const body = {};
+    const columns = tableInfo[currentTable] || [];
+
+    columns.forEach(column => {
+      const field = $("formFields").querySelector(
+        `[data-column="${CSS.escape(column.name)}"]`
+      );
+
+      if (!field) return;
+
+      let value = field.value.trim();
+
+      if (value === "") {
+        if (column.required) {
+          throw new Error("Please fill required field: " + column.name);
+        }
+        return;
+      }
+
+      if (/json/i.test(column.type)) {
+        try {
+          value = JSON.parse(value);
+        } catch {
+          throw new Error("Invalid JSON in " + column.name);
+        }
+      } else if (/int|real|numeric|decimal|float|double/i.test(column.type)) {
+        const number = Number(value);
+        if (!Number.isFinite(number)) {
+          throw new Error("Enter a valid number in " + column.name);
+        }
+        value = number;
+      }
+
+      body[column.name] = value;
+    });
+
+    let path = "/" + currentTable;
+    let method = "POST";
+
+    if (editingRecord) {
+      const key = getPrimaryKey();
+
+      if (!key) throw new Error("Primary key not found.");
+
+      path += "/" + encodeURIComponent(editingRecord[key]);
+      method = "PUT";
+    }
+
+    await api(path, {
+      method,
+      body:JSON.stringify(body)
+    });
+
+    closeEditor();
+    await showTable(currentTable);
+    alert("Record saved successfully!");
+
+  } catch(error) {
+    showMessage($("formMessage"), error.message, "error");
+  } finally {
+    button.disabled = false;
+    button.textContent = editingRecord ? "Update Record" : "Save Record";
+  }
+});
+
+// Restore an existing login session
+async function restoreSession() {
+  if (!token) return;
+
+  $("loginPanel").classList.add("hidden");
+  $("dashboard").classList.remove("hidden");
+  $("logout").classList.remove("hidden");
+
+  await initializeDashboard();
+}
+
+restoreSession();
+</script>
+</body>
+  </html>
+  
