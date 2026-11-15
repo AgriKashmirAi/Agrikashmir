@@ -1,1 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#173f2b">
+<meta name="description" content="Agri Kashmir — an educational guide to high-density apple farming in Kashmir, including rootstocks, Gala selections, orchard planning and management.">
+<title>Agri Kashmir | High-Density Apple Farming</title>
+<style>
+:root{
+  --forest:#173f2b;--green:#246342;--leaf:#6d9c58;--mint:#eaf2e8;
+  --cream:#f7f7f0;--paper:#fff;--ink:#203128;--muted:#647268;
+  --line:#dce5dc;--gold:#c69b50;--shadow:0 14px 40px rgba(24,55,37,.09);
+  --radius:18px;--max:1160px
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;overflow-wrap:break-word}
+img,svg{max-width:100%}
+a{color:var(--green)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.container{width:min(var(--max),calc(100% - 36px));margin-inline:auto}
+.skip{position:absolute;left:-9999px;top:auto}.skip:focus{left:12px;top:12px;background:#fff;padding:10px;z-index:999}
+.topbar{background:var(--forest);color:#eaf2e8;font-size:.83rem;padding:8px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-wrap{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--forest);min-width:0}
+.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--forest);color:white;display:grid;place-items:center;font-size:23px;flex:none}
+.brand strong{display:block;font-size:1.12rem;letter-spacing:.02em;line-height:1.15}
+.brand small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:4px}
+nav a{padding:10px 11px;border-radius:10px;text-decoration:none;color:#33473a;font-size:.9rem;font-weight:650}
+nav a:hover,nav a:focus-visible{background:var(--mint);color:var(--forest)}
+.menu-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;width:44px;height:44px;color:var(--forest);font-size:23px}
+.hero{padding:74px 0 62px;background:radial-gradient(circle at 80% 20%,rgba(198,155,80,.2),transparent 27%),linear-gradient(135deg,#173f2b,#285f40 62%,#477c4e);color:#fff;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);padding:7px 12px;border-radius:99px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#e8f1e5}
+.hero h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.04;letter-spacing:-.045em;margin:20px 0}
+.hero h1 span{color:#e5c98d}
+.hero p{font-size:1.08rem;color:#e4eee4;max-width:650px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid transparent;text-decoration:none;font-weight:750}
+.btn-light{background:#fff;color:var(--forest)}
+.btn-outline{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
+.hero-art{min-height:310px;border:1px solid rgba(255,255,255,.2);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04));display:grid;place-items:center;position:relative;padding:25px}
+.orchard-art{width:100%;max-width:420px}
+.hero-note{position:absolute;bottom:18px;left:18px;background:#fff;color:var(--forest);padding:10px 14px;border-radius:12px;font-size:.82rem;font-weight:750;box-shadow:var(--shadow)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:-26px;position:relative;z-index:2}
+.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:var(--shadow)}
+.stat strong{display:block;color:var(--forest);font-size:1.45rem}
+.stat span{font-size:.83rem;color:var(--muted)}
+section{padding:68px 0}
+.section-head{max-width:760px;margin-bottom:28px}
+.kicker{color:var(--green);font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.14;letter-spacing:-.035em;color:var(--forest);margin:8px 0 12px}
+h3{color:var(--forest);line-height:1.25}
+.lead{font-size:1.05rem;color:var(--muted);margin:0}
+.grid{display:grid;gap:18px}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 5px 20px rgba(24,55,37,.035);min-width:0}
+.card p:last-child{margin-bottom:0}
+.icon-tile{width:44px;height:44px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px;margin-bottom:13px}
+.card h3{margin:0 0 8px}
+.card p,.muted{color:var(--muted)}
+.pill{display:inline-block;background:var(--mint);color:var(--green);font-size:.75rem;font-weight:800;border-radius:99px;padding:5px 9px;margin:3px 4px 3px 0}
+.note{border-left:4px solid var(--gold);background:#fff9ed;padding:16px 18px;border-radius:0 12px 12px 0;margin:20px 0;color:#594b32}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:680px}
+th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#edf4eb;color:var(--forest);font-size:.85rem}
+td{font-size:.91rem}
+tr:last-child td{border-bottom:0}
+.callout{background:var(--forest);color:#eff7ed;border-radius:22px;padding:26px}
+.callout h3{color:#fff}
+.callout p{color:#dbe9dc}
+.steps{counter-reset:step;display:grid;gap:12px}
+.step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}
+.step:before{counter-increment:step;content:counter(step);width:30px;height:30px;flex:none;border-radius:50%;display:grid;place-items:center;background:var(--forest);color:white;font-weight:800}
+.diagram{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.diagram svg{width:100%;height:auto;max-width:650px}
+.calendar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.month{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;min-width:0}
+.month h3{margin:0 0 6px;font-size:1rem}
+.month p{margin:0;color:var(--muted);font-size:.88rem}
+.tool-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-weight:750;font-size:.88rem;margin-bottom:6px;color:var(--forest)}
+input,select{width:100%;min-width:0;padding:12px 13px;border:1px solid #cbd8cc;border-radius:11px;background:#fff;color:var(--ink)}
+input:focus,select:focus,button:focus-visible,a:focus-visible{outline:3px solid rgba(109,156,88,.35);outline-offset:2px}
+.action{border:0;background:var(--forest);color:#fff;padding:12px 18px;border-radius:11px;font-weight:800;margin-top:14px}
+.result{margin-top:14px;padding:15px;border-radius:12px;background:var(--mint);color:var(--forest);font-weight:750;min-height:48px}
+.search-row{display:flex;gap:10px}
+.search-row input{flex:1}
+.search-results{display:grid;gap:9px;margin-top:14px}
+.search-results a{background:#fff;border:1px solid var(--line);padding:12px 14px;border-radius:11px;text-decoration:none;font-weight:750;color:var(--forest)}
+details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 17px}
+details+details{margin-top:10px}
+summary{cursor:pointer;color:var(--forest);font-weight:800}
+details p{color:var(--muted);margin-bottom:0}
+.footer{background:#112f20;color:#e9f1e8;padding:42px 0}
+.footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.footer p{color:#bdcdbf;margin:6px 0}
+.footer a{color:#e9f1e8}
+.small{font-size:.82rem;color:var(--muted)}
+.backtop{position:fixed;right:16px;bottom:16px;width:44px;height:44px;border:0;border-radius:50%;background:var(--forest);color:white;font-size:20px;box-shadow:var(--shadow);z-index:50}
+.hidden{display:none!important}
+@media(max-width:900px){
+  nav{gap:0}nav a{padding:9px 8px;font-size:.82rem}
+  .hero-grid{grid-template-columns:1fr .8fr}.calendar{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .container{width:min(100% - 28px,var(--max))}
+  .nav-wrap{min-height:66px}
+  .menu-toggle{display:grid;place-items:center}
+  nav{display:none;position:absolute;top:calc(100% + 1px);left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:10px 14px 16px;box-shadow:0 15px 24px rgba(20,50,30,.1);align-items:stretch;flex-direction:column;gap:3px}
+  nav.open{display:flex}
+  nav a{font-size:.96rem;padding:12px 13px}
+  .hero{padding:52px 0 48px}
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .hero-art{min-height:235px}
+  .hero-note{font-size:.75rem}
+  .stats{grid-template-columns:1fr;gap:8px;margin-top:14px}
+  .stat{display:flex;justify-content:space-between;align-items:center;padding:13px 16px}
+  .stat strong{font-size:1.15rem}
+  section{padding:48px 0}
+  .grid-3,.grid-2{grid-template-columns:1fr}
+  .calendar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .form-grid{grid-template-columns:1fr}
+  .search-row{flex-direction:column}
+  .search-row .action{width:100%;margin-top:0}
+}
+@media(max-width:420px){
+  .calendar{grid-template-columns:1fr}
+  .brand strong{font-size:1rem}
+  .brand small{font-size:.64rem}
+  .hero h1{font-size:2.45rem}
+  .card,.tool-panel{padding:17px}
+  .topbar .container{font-size:.75rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar"><div class="container"><span>🍎 Knowledge for modern apple orchards</span><span>Focused on high-density apple farming in Kashmir</span></div></div>
+<header>
+  <div class="container nav-wrap">
+    <a class="brand" href="#top" aria-label="Agri Kashmir home"><span class="brand-mark">🌿</span><span><strong>Agri Kashmir</strong><small>High-Density Apple Farming</small></span></a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="siteNav">☰</button>
+    <nav id="siteNav" aria-label="Main navigation">
+      <a href="#about">About HDP</a><a href="#rootstocks">Rootstocks</a><a href="#gala">Gala</a><a href="#orchard">Orchard</a><a href="#care">Management</a><a href="#diseases">Plant Health</a><a href="#calendar">Calendar</a><a href="#tools">Tools</a><a href="#disclaimer">Disclaimer</a>
+    </nav>
+  </div>
+</header>
 
+<main id="main">
+<section class="hero">
+ <div class="container hero-grid">
+  <div>
+   <span class="eyebrow">🌱 Kashmir orchard learning hub</span>
+   <h1>Grow smarter.<br><span>Grow better.</span></h1>
+   <p>A practical educational guide to high-density apple farming in Kashmir — from rootstock selection and Gala colour strains to orchard planning, training, irrigation and harvest.</p>
+   <div class="hero-actions"><a class="btn btn-light" href="#about">Explore the guide ↓</a><a class="btn btn-outline" href="#tools">Use orchard calculator</a></div>
+  </div>
+  <div class="hero-art" aria-label="Illustration of a high-density apple orchard">
+   <svg class="orchard-art" viewBox="0 0 480 300" role="img" aria-label="Rows of apple trees">
+    <defs><linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#dcebd0"/><stop offset="1" stop-color="#f4e8c9"/></linearGradient></defs>
+    <rect x="8" y="8" width="464" height="284" rx="24" fill="url(#sky)"/>
+    <path d="M10 210 Q110 160 235 205 T470 190 V285 H10Z" fill="#9fbd83"/>
+    <path d="M10 245 Q130 195 240 238 T470 220 V290 H10Z" fill="#668f5a"/>
+    <g stroke="#795532" stroke-width="8" stroke-linecap="round">
+     <path d="M110 244V145 M205 250V125 M300 244V145 M395 245V130"/>
+    </g>
+    <g fill="#34734a">
+     <circle cx="110" cy="133" r="48"/><circle cx="205" cy="110" r="57"/><circle cx="300" cy="133" r="48"/><circle cx="395" cy="115" r="55"/>
+    </g>
+    <g fill="#c94e3d"><circle cx="88" cy="125" r="7"/><circle cx="125" cy="145" r="7"/><circle cx="194" cy="88" r="8"/><circle cx="222" cy="126" r="7"/><circle cx="285" cy="125" r="7"/><circle cx="315" cy="145" r="7"/><circle cx="377" cy="100" r="8"/><circle cx="410" cy="132" r="7"/></g>
+    <g stroke="#eaf2e8" stroke-width="2" opacity=".8"><path d="M48 205H432"/><path d="M48 223H432"/></g>
+    <g fill="#fff" opacity=".8"><circle cx="72" cy="56" r="17"/><circle cx="90" cy="55" r="23"/><circle cx="110" cy="60" r="15"/></g>
+   </svg>
+   <div class="hero-note">A Kashmir-focused learning resource</div>
+  </div>
+ </div>
+</section>
+
+<div class="container stats" aria-label="Website highlights">
+ <div class="stat"><strong>01</strong><span>Rootstock knowledge</span></div>
+ <div class="stat"><strong>02</strong><span>Gala selection guide</span></div>
+ <div class="stat"><strong>03</strong><span>Orchard planning tools</span></div>
+</div>
+
+<section id="about">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Start here</span><h2>Understanding high-density apple farming</h2><p class="lead">High-density planting (HDP) is an orchard system that uses more trees per unit area, usually with size-controlling rootstocks, planned spacing, support structures and disciplined canopy management.</p></div>
+  <div class="grid grid-3">
+   <article class="card"><div class="icon-tile">🌳</div><h3>Better space use</h3><p>Carefully planned tree rows can make productive use of orchard land while keeping the canopy accessible.</p></article>
+   <article class="card"><div class="icon-tile">☀️</div><h3>Light management</h3><p>A narrow, well-managed canopy can help distribute light and support fruit colour and quality.</p></article>
+   <article class="card"><div class="icon-tile">🧑‍🌾</div><h3>Planned operations</h3><p>Training, pruning, irrigation, nutrition and harvest need regular attention and good records.</p></article>
+  </div>
+  <div class="note"><strong>Remember:</strong> HDP is a complete orchard system, not simply planting more trees. Site suitability, reliable plant material, water, support infrastructure, management skill and market access all matter.</div>
+ </div>
+</section>
+
+<section id="rootstocks" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Foundation of the orchard</span><h2>Apple rootstocks</h2><p class="lead">Rootstocks influence tree vigour, size, anchorage, precocity and management needs. The descriptions below are a general learning guide, not a local availability or performance guarantee.</p></div>
+  <div class="table-wrap"><table>
+   <thead><tr><th>Rootstock</th><th>General vigour class</th><th>Key learning points</th></tr></thead>
+   <tbody>
+    <tr><td><strong>P.22</strong></td><td>Very dwarfing</td><td>Very compact growth; requires careful matching to site, cultivar, support and management.</td></tr>
+    <tr><td><strong>M.9</strong></td><td>Dwarfing</td><td>Commonly used in intensive systems; generally needs permanent support and reliable water management.</td></tr>
+    <tr><td><strong>M.9 T337</strong></td><td>Dwarfing</td><td>A named M.9 clone used in high-density orchards; verify identity and nursery certification.</td></tr>
+    <tr><td><strong>M.9 EMLA</strong></td><td>Dwarfing</td><td>A virus-tested M.9 selection; performance still depends on site and orchard management.</td></tr>
+    <tr><td><strong>M.26</strong></td><td>Semi-dwarfing</td><td>Generally more vigorous than M.9; assess anchorage, soil and intended planting system.</td></tr>
+    <tr><td><strong>M.7</strong></td><td>Semi-dwarfing</td><td>Produces a larger tree than M.9; not interchangeable with very dwarfing rootstocks.</td></tr>
+    <tr><td><strong>MM.106</strong></td><td>Semi-vigorous</td><td>Requires careful site and drainage assessment; rootstock choice should be locally advised.</td></tr>
+    <tr><td><strong>MM.111</strong></td><td>Vigorous</td><td>Produces a larger tree; usually associated with less intensive planting systems.</td></tr>
+    <tr><td><strong>B.9</strong></td><td>Very dwarfing</td><td>Used in intensive systems; needs suitable support and locally verified plant material.</td></tr>
+    <tr><td><strong>Geneva G.11</strong></td><td>Dwarfing</td><td>Modern dwarfing rootstock; confirm local trial information and availability.</td></tr>
+    <tr><td><strong>Geneva G.41</strong></td><td>Dwarfing</td><td>Used in intensive systems; match with compatible scion and a professionally designed support system.</td></tr>
+   </tbody>
+  </table></div>
+  <div class="note"><strong>Before buying:</strong> Ask the nursery for the exact rootstock name, source, plant-health documentation and scion/rootstock combination. Confirm suitability with the local Horticulture Department or SKUAST extension experts. Rootstock lists and availability can vary over time.</div>
+ </div>
+</section>
+
+<section id="gala">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Gala-only variety library</span><h2>Gala apple selections and colour strains</h2><p class="lead">This catalogue focuses on Gala and named Gala selections only. Different selections are marketed for colour, striping and fruit appearance; exact characteristics can vary by clone, growing site and supplier.</p></div>
+  <div class="grid grid-3">
+   <article class="card"><span class="pill">Gala</span><h3>Royal Gala</h3><p>An established Gala selection, commonly recognised for red striping over a lighter background. Fruit appearance and maturity depend on local conditions.</p></article>
+   <article class="card"><span class="pill">Red-colour selection</span><h3>Brookfield Gala</h3><p>Marketed as a Gala selection with improved red colour. Confirm the exact clone and local performance.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala Schniga</h3><p>A commercial Gala selection name. Ask the supplier which specific Schniga clone is being offered.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala SchniCo Red</h3><p>Marketed as a red-coloured Gala selection. Verify spelling, identity and source documentation.</p></article>
+   <article class="card"><span class="pill">Trade name to verify</span><h3>Dark Baron Gala</h3><p>Marketed under a dark-red Gala name. Do not rely on the trade name alone; verify plant identity with the supplier.</p></article>
+   <article class="card"><span class="pill">Trade name to verify</span><h3>Gala Redlum / Red Lum</h3><p>A name used for a red-colour Gala selection. Confirm the precise selection and spelling before purchase.</p></article>
+   <article class="card"><span class="pill">Trade name to verify</span><h3>Devil Gala</h3><p>A commercial name associated with a red Gala selection. Request traceable cultivar or clone details.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala Mema 16316</h3><p>A named Gala selection reported in plant markets. Confirm authenticity and independent performance information.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala Star</h3><p>A Gala selection marketed for fruit appearance. Compare verified local observations before choosing.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala Buckeye</h3><p>A commercial Gala strain name. Check the exact plant material and supplier documentation.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Mitch Gala</h3><p>A name encountered in Gala selection listings. Verify identity and local suitability before planting.</p></article>
+   <article class="card"><span class="pill">Named selection</span><h3>Gala Mast</h3><p>A marketed Gala selection name. Ask for the original breeder or licensed supplier information.</p></article>
+   <article class="card"><span class="pill">Gala</span><h3>Galaxy Gala</h3><p>A Gala selection name associated with red striping/colour characteristics. Confirm the exact clone.</p></article>
+   <article class="card"><span class="pill">Gala</span><h3>Imperial Gala</h3><p>A Gala selection name used commercially. Verify the plant identity and performance claims.</p></article>
+  </div>
+  <div class="note"><strong>Important cultivar disclaimer:</strong> Some names above are trade or nursery names, and their exact identity, origin, registration, import status or performance in Kashmir may not be independently established here. Treat them as names to investigate, not an endorsement or verified list of imported cultivars. Obtain written identity and plant-health documents before purchase. This page intentionally excludes non-Gala apple varieties.</div>
+  <h3>How to compare Gala selections</h3>
+  <div class="grid grid-2">
+   <div class="card"><h3>Fruit and market traits</h3><ul><li>Red colour coverage and consistency</li><li>Fruit size and shape</li><li>Firmness and eating quality</li><li>Harvest timing and storage behaviour</li><li>Buyer preference and market requirements</li></ul></div>
+   <div class="card"><h3>Orchard suitability</h3><ul><li>Verified scion and rootstock identity</li><li>Flowering overlap and pollination plan</li><li>Performance in a comparable climate</li><li>Availability of genuine, healthy plants</li><li>Local trial results and expert advice</li></ul></div>
+  </div>
+ </div>
+</section>
+
+<section id="orchard" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Plan before planting</span><h2>Orchard layout and plantation</h2><p class="lead">A good orchard begins with a site assessment and a layout suited to the rootstock, cultivar, slope, soil, machinery and support system.</p></div>
+  <div class="grid grid-2">
+   <div class="card"><h3>Site assessment checklist</h3><ul><li>Soil depth, texture and drainage</li><li>Water availability and water quality</li><li>Altitude, frost exposure and wind</li><li>Land slope, sunlight and row orientation</li><li>Access roads and movement of equipment</li><li>Market, labour and storage access</li></ul></div>
+   <div class="card"><h3>Planting sequence</h3><div class="steps"><div class="step">Test soil and assess the site.</div><div class="step">Choose a suitable rootstock and genuine Gala plant material.</div><div class="step">Prepare a measured orchard layout.</div><div class="step">Install the designed support and irrigation systems.</div><div class="step">Plant carefully and train trees from the beginning.</div></div></div>
+  </div>
+  <div class="formula card"><h3>Planting density formula</h3><p><strong>Trees per hectare = 10,000 ÷ (row spacing × tree spacing)</strong></p><p class="muted">Use spacing in metres. This is a theoretical calculation and does not account for headlands, paths, boundaries or unusable land.</p></div>
+  <div class="diagram" style="margin-top:18px">
+   <h3>Illustrative orchard row layout</h3>
+   <svg viewBox="0 0 640 250" role="img" aria-label="Illustration of parallel apple tree rows">
+    <rect x="8" y="8" width="624" height="234" rx="15" fill="#eef4e9"/>
+    <g stroke="#8b6a43" stroke-width="2" stroke-dasharray="5 5"><path d="M55 45H585M55 105H585M55 165H585M55 225H585"/></g>
+    <g fill="#3f8150" stroke="#245b37" stroke-width="2">
+     <circle cx="100" cy="45" r="16"/><circle cx="190" cy="45" r="16"/><circle cx="280" cy="45" r="16"/><circle cx="370" cy="45" r="16"/><circle cx="460" cy="45" r="16"/><circle cx="550" cy="45" r="16"/>
+     <circle cx="100" cy="105" r="16"/><circle cx="190" cy="105" r="16"/><circle cx="280" cy="105" r="16"/><circle cx="370" cy="105" r="16"/><circle cx="460" cy="105" r="16"/><circle cx="550" cy="105" r="16"/>
+     <circle cx="100" cy="165" r="16"/><circle cx="190" cy="165" r="16"/><circle cx="280" cy="165" r="16"/><circle cx="370" cy="165" r="16"/><circle cx="460" cy="165" r="16"/><circle cx="550" cy="165" r="16"/>
+    </g>
+    <g fill="#fff" font-size="12"><text x="15" y="20">Row A</text><text x="15" y="80">Row B</text><text x="15" y="140">Row C</text></g>
+   </svg>
+   <p class="small">Conceptual illustration only — not a recommended spacing plan.</p>
+  </div>
+ </div>
+</section>
+
+<section id="trellis">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Tree support</span><h2>Trellis system</h2><p class="lead">Many dwarfing rootstock systems need permanent support. A trellis should be engineered for the orchard site, soil, wind exposure and expected crop load.</p></div>
+  <div class="grid grid-3">
+   <article class="card"><div class="icon-tile">🪵</div><h3>End and line posts</h3><p>End posts anchor the row; intermediate posts help support wires along its length.</p></article>
+   <article class="card"><div class="icon-tile">〰️</div><h3>Wires and anchors</h3><p>Wires carry support loads. Anchors and tensioning hardware help stabilise the structure.</p></article>
+   <article class="card"><div class="icon-tile">🌱</div><h3>Ties and clips</h3><p>Suitable ties guide leaders and branches while avoiding constriction or bark injury.</p></article>
+  </div>
+  <div class="note">Post dimensions, spacing, wire gauge, tension and anchoring must be designed locally. Inspect the system regularly and repair loose wires, damaged posts and ties.</div>
+ </div>
+</section>
+
+<section id="care" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Year-round orchard care</span><h2>Training, pruning, irrigation and nutrition</h2><p class="lead">Consistent management helps maintain tree structure, healthy foliage and a productive canopy.</p></div>
+  <div class="grid grid-2">
+   <article class="card"><h3>Central leader training</h3><p>Maintain one main upright leader and distribute suitable lateral branches along it. Branch selection depends on tree age, vigour and training stage.</p><ul><li>Guide the leader vertically.</li><li>Manage competing leaders.</li><li>Keep the canopy narrow and balanced.</li><li>Use appropriate ties without damaging bark.</li></ul></article>
+   <article class="card"><h3>Winter and summer pruning</h3><p>Pruning should preserve productive wood, manage vigour and maintain light penetration.</p><ul><li>Remove dead, broken and diseased wood.</li><li>Manage competing and crowded branches.</li><li>Use clean, sharp tools.</li><li>Avoid excessive removal of healthy leaf area.</li></ul></article>
+   <article class="card"><h3>Drip irrigation</h3><p>Drip systems deliver water near the root zone and can support efficient irrigation when properly designed.</p><ul><li>Check filters, emitters and pressure.</li><li>Monitor soil moisture and rainfall.</li><li>Prevent waterlogging.</li><li>Flush and maintain pipes as advised.</li></ul></article>
+   <article class="card"><h3>Fertigation and nutrients</h3><p>Fertigation supplies suitable soluble nutrients through irrigation. Programmes should be based on orchard need, not guesswork.</p><ul><li>Use soil tests and, where advised, leaf analysis.</li><li>Consider tree age and crop load.</li><li>Check fertilizer compatibility with the system.</li><li>Keep application records.</li></ul></article>
+  </div>
+  <h3 style="margin-top:28px">Key plant nutrients</h3>
+  <div class="table-wrap"><table><thead><tr><th>Nutrient</th><th>General role</th><th>Note</th></tr></thead><tbody>
+   <tr><td>Nitrogen (N)</td><td>Leaf and shoot growth</td><td>Excess can encourage unwanted vegetative growth.</td></tr>
+   <tr><td>Phosphorus (P)</td><td>Energy transfer and root functions</td><td>Availability is influenced by soil conditions.</td></tr>
+   <tr><td>Potassium (K)</td><td>Water regulation and fruit development</td><td>Balance should be based on testing.</td></tr>
+   <tr><td>Calcium (Ca)</td><td>Cell-wall structure and fruit quality</td><td>Fruit calcium status is affected by several factors.</td></tr>
+   <tr><td>Boron (B), Zinc (Zn), Iron (Fe), Magnesium (Mg)</td><td>Flowering, enzyme activity and leaf function</td><td>Micronutrients should only be applied when indicated.</td></tr>
+  </tbody></table></div>
+  <div class="note"><strong>Do not use fixed online doses.</strong> Fertilizer and irrigation requirements vary with soil, water, weather, rootstock, tree age and crop load. Seek soil/leaf analysis and local expert recommendations.</div>
+ </div>
+</section>
+
+<section id="pollination">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Flowering and fruit set</span><h2>Pollination management</h2><p class="lead">Successful pollination and fertilisation support fruit set. Many apple cultivars need compatible pollen from another cultivar with overlapping bloom.</p></div>
+  <div class="grid grid-3">
+   <article class="card"><h3>Compatible pollinizers</h3><p>Confirm compatibility and flowering overlap for the exact Gala selection with a qualified horticulture expert.</p></article>
+   <article class="card"><h3>Pollinating insects</h3><p>Protect bees and other pollinators. Avoid unnecessary insecticide use during active flowering and bee activity.</p></article>
+   <article class="card"><h3>Weather at bloom</h3><p>Cold, rain and wind can affect pollinator activity and flowering success. Monitor orchard conditions.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="diseases" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Orchard health</span><h2>Apple diseases and pests</h2><p class="lead">Regular scouting, correct identification, sanitation and integrated pest management are central to orchard protection.</p></div>
+  <h3>Common diseases to recognise</h3>
+  <div class="table-wrap"><table><thead><tr><th>Problem</th><th>Possible symptoms</th><th>General management principles</th></tr></thead><tbody>
+   <tr><td>Apple scab</td><td>Olive-green to dark lesions on leaves or fruit.</td><td>Monitor conditions, maintain sanitation and use locally recommended measures.</td></tr>
+   <tr><td>Powdery mildew</td><td>White powdery growth on shoots, buds or leaves.</td><td>Scout early, manage affected shoots where appropriate and seek local advice.</td></tr>
+   <tr><td>Canker</td><td>Sunken or dead areas on branches or stems.</td><td>Prune affected wood appropriately and sanitise tools.</td></tr>
+   <tr><td>Collar/root rot</td><td>Declining vigour and damage near the soil line.</td><td>Check drainage and obtain a diagnosis before treatment.</td></tr>
+  </tbody></table></div>
+  <h3 style="margin-top:24px">Common pests to monitor</h3>
+  <div class="table-wrap"><table><thead><tr><th>Pest</th><th>Possible damage</th><th>Monitoring</th></tr></thead><tbody>
+   <tr><td>Codling moth</td><td>Larval entry and feeding damage in fruit.</td><td>Use suitable traps and inspect fruit.</td></tr>
+   <tr><td>Aphids</td><td>Sap feeding, curled leaves and weakened shoots.</td><td>Inspect young shoots and leaf undersides.</td></tr>
+   <tr><td>Mites</td><td>Leaf stippling, bronzing and reduced leaf function.</td><td>Inspect leaf undersides and monitor populations.</td></tr>
+   <tr><td>Leafrollers</td><td>Rolled leaves and possible fruit damage.</td><td>Inspect foliage and developing fruit.</td></tr>
+  </tbody></table></div>
+  <div class="card" style="margin-top:20px"><h3>Integrated Pest Management (IPM)</h3><ol><li>Scout regularly and record observations.</li><li>Identify the pest or disease correctly.</li><li>Use sanitation and cultural controls where appropriate.</li><li>Protect beneficial organisms and pollinators.</li><li>Use monitoring traps when suitable.</li><li>Use only locally registered products, following the current label and safety instructions.</li></ol></div>
+  <div class="note"><strong>Safety:</strong> This site does not prescribe pesticide products or doses. Never guess a chemical dose or use a product not approved for the crop and purpose. Follow the product label, protective-equipment requirements and pre-harvest interval, and consult local experts.</div>
+ </div>
+</section>
+
+<section id="harvest">
+ <div class="container">
+  <div class="section-head"><span class="kicker">From orchard to market</span><h2>Harvesting, grading and storage</h2><p class="lead">Harvest maturity and careful handling influence eating quality, transport performance and storage life.</p></div>
+  <div class="grid grid-3">
+   <article class="card"><h3>Harvest maturity</h3><p>Assess cultivar-specific background colour, firmness, starch pattern and soluble solids where testing is available. Do not rely on one sign alone.</p></article>
+   <article class="card"><h3>Careful picking</h3><p>Pick gently, avoid bruising, use clean containers and separate damaged or diseased fruit.</p></article>
+   <article class="card"><h3>Grading and storage</h3><p>Grade consistently and use suitable storage conditions for the cultivar, maturity and storage system.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="calendar" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Seasonal guide</span><h2>Kashmir orchard calendar</h2><p class="lead">A broad month-wise reminder for planning. Timing changes with altitude, weather, cultivar, orchard age and local conditions.</p></div>
+  <div class="calendar">
+   <article class="month"><h3>January</h3><p>Orchard inspection, planning, equipment checks and review of previous-season records.</p></article>
+   <article class="month"><h3>February</h3><p>Pruning and orchard preparation when conditions and local guidance permit.</p></article>
+   <article class="month"><h3>March</h3><p>Planting preparation, soil management and bud-development monitoring.</p></article>
+   <article class="month"><h3>April</h3><p>Flowering and pollination observation; protect pollinators and monitor weather.</p></article>
+   <article class="month"><h3>May</h3><p>Fruit-set monitoring, irrigation checks, canopy observation and orchard sanitation.</p></article>
+   <article class="month"><h3>June</h3><p>Fruit development, soil-moisture checks and pest/disease scouting.</p></article>
+   <article class="month"><h3>July</h3><p>Canopy monitoring, trellis inspection and fruit-development observations.</p></article>
+   <article class="month"><h3>August</h3><p>Monitor maturity of early selections and prepare harvest equipment.</p></article>
+   <article class="month"><h3>September</h3><p>Harvest according to maturity, grade carefully and handle fruit gently.</p></article>
+   <article class="month"><h3>October</h3><p>Later harvest where applicable, post-harvest inspection and record keeping.</p></article>
+   <article class="month"><h3>November</h3><p>Leaf-fall observation, orchard sanitation and winter preparation.</p></article>
+   <article class="month"><h3>December</h3><p>Review the season, plan improvements and inspect tools and infrastructure.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="tools">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Interactive tools</span><h2>Orchard calculator and smart search</h2><p class="lead">Use these simple tools for learning and preliminary planning. Calculator results are estimates, not planting prescriptions.</p></div>
+  <div class="grid grid-2">
+   <div class="tool-panel">
+    <h3>Planting density calculator</h3>
+    <div class="form-grid" style="grid-template-columns:1fr 1fr">
+     <div><label for="rowSpacing">Row spacing (m)</label><input id="rowSpacing" type="number" min=".1" step=".1" value="3"></div>
+     <div><label for="treeSpacing">Tree spacing (m)</label><input id="treeSpacing" type="number" min=".1" step=".1" value="1"></div>
+     <div style="grid-column:1/-1"><label for="areaKanals">Land area (kanals)</label><input id="areaKanals" type="number" min=".1" step=".1" value="1"></div>
+    </div>
+    <button class="action" id="calculateBtn" type="button">Calculate estimate</button>
+    <div class="result" id="calcResult" aria-live="polite">Enter your spacing and area to estimate tree numbers.</div>
+    <p class="small">For this estimate, 1 kanal = 505.86 m². Actual plantable area will be lower after allowing for paths, boundaries, headlands and unusable land.</p>
+   </div>
+   <div class="tool-panel">
+    <h3>Search the learning guide</h3>
+    <label for="siteSearch">Search a topic</label>
+    <div class="search-row"><input id="siteSearch" type="search" placeholder="Try: Gala, P22, pruning, scab..."><button class="action" id="searchBtn" type="button">Search</button></div>
+    <div class="search-results" id="searchResults" aria-live="polite"></div>
+    <p class="small">Search matches sections of this page. It does not send your search data anywhere.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="help" style="background:#eef3eb">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Farmer help centre</span><h2>Frequently asked questions</h2><p class="lead">Quick answers to common high-density orchard planning questions.</p></div>
+  <details><summary>Is high-density planting suitable for every orchard?</summary><p>No. It depends on site conditions, rootstock, water, support infrastructure, investment capacity and management skills. Assess the site with a qualified local expert first.</p></details>
+  <details><summary>Which rootstock is best for Kashmir?</summary><p>There is no single best rootstock for every location. Compare local trial information, soil, altitude, drainage, irrigation, cultivar compatibility and support requirements before choosing.</p></details>
+  <details><summary>Which Gala selection should I plant?</summary><p>Compare verified plant identity, local performance, fruit colour, maturity, market preference and availability of genuine healthy plants. Do not select on a trade name or photograph alone.</p></details>
+  <details><summary>Can I calculate the number of trees for my land?</summary><p>Yes. Use the calculator above for a theoretical estimate. A final orchard layout must allow for access, boundaries, headlands, slope and infrastructure.</p></details>
+  <details><summary>Where can I get reliable technical advice?</summary><p>Contact the relevant local Horticulture Department, SKUAST extension services or a qualified horticulture professional familiar with your orchard location.</p></details>
+ </div>
+</section>
+
+<section id="disclaimer">
+ <div class="container">
+  <div class="section-head"><span class="kicker">Please read</span><h2>Disclaimer</h2></div>
+  <div class="card">
+   <p>Agri Kashmir is an independent educational information platform focused on high-density apple farming in Kashmir. Its purpose is to help farmers, students and orchard owners understand modern apple-growing practices.</p>
+   <p>All information is provided for general educational purposes. It is not a substitute for professional horticultural advice, field inspection, laboratory testing or current official recommendations.</p>
+   <p>Rootstock performance, Gala selection, planting density, irrigation, nutrient management, disease control and harvest practices vary with location, altitude, soil, climate, plant material and orchard management.</p>
+   <p>Commercial names of Gala selections are included for awareness. Their exact identity, origin, registration, import status, availability and local performance must be independently verified with reliable suppliers and qualified experts before purchase.</p>
+   <p>No fixed fertilizer rate, pesticide dose or chemical treatment is prescribed. Always follow current government recommendations and product labels, including safety precautions and pre-harvest intervals.</p>
+   <p>Although care is taken to make the material useful, Agri Kashmir does not guarantee that all information is complete, current or suitable for every orchard. Users should verify information before making agricultural or financial decisions.</p>
+   <p><strong>Our aim is to encourage informed decisions, responsible orchard management and better understanding of high-density apple farming in Kashmir.</strong></p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="footer">
+ <div class="container footer-grid">
+  <div><h2 style="color:#fff;margin:0">Agri Kashmir</h2><p>High-Density Apple Farming</p><p class="small" style="color:#bdcdbf">An independent educational initiative.</p></div>
+  <div><p>Knowledge for better orchard decisions.</p><p>© <span id="year"></span> Agri Kashmir. All rights reserved.</p><a href="#top">Back to top ↑</a></div>
+ </div>
+</footer>
+<button class="backtop" id="backTop" type="button" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  "use strict";
+  const menuButton = document.getElementById("menuToggle");
+  const nav = document.getElementById("siteNav");
+
+  function closeMenu(){
+    nav.classList.remove("open");
+    menuButton.setAttribute("aria-expanded","false");
+    menuButton.setAttribute("aria-label","Open navigation menu");
+    menuButton.textContent = "☰";
+  }
+  menuButton.addEventListener("click",function(){
+    const isOpen = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded",String(isOpen));
+    menuButton.setAttribute("aria-label",isOpen ? "Close navigation menu" : "Open navigation menu");
+    menuButton.textContent = isOpen ? "✕" : "☰";
+  });
+  nav.querySelectorAll("a").forEach(function(link){link.addEventListener("click",closeMenu)});
+  document.addEventListener("click",function(event){
+    if(window.innerWidth <= 760 && !nav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+  });
+  window.addEventListener("resize",function(){if(window.innerWidth > 760) closeMenu()});
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  document.getElementById("calculateBtn").addEventListener("click",function(){
+    const row = Number(document.getElementById("rowSpacing").value);
+    const tree = Number(document.getElementById("treeSpacing").value);
+    const kanals = Number(document.getElementById("areaKanals").value);
+    const output = document.getElementById("calcResult");
+    if(!Number.isFinite(row) || !Number.isFinite(tree) || !Number.isFinite(kanals) || row <= 0 || tree <= 0 || kanals <= 0){
+      output.textContent = "Please enter valid numbers greater than zero.";
+      return;
+    }
+    const theoreticalPerHectare = 10000/(row*tree);
+    const theoreticalTotal = Math.floor((kanals*505.86)/(row*tree));
+    output.innerHTML = "<strong>Estimated density:</strong> " + Math.round(theoreticalPerHectare).toLocaleString("en-IN") +
+      " trees per hectare<br><strong>Estimated trees on " + kanals + " kanal(s):</strong> " + theoreticalTotal.toLocaleString("en-IN");
+  });
+
+  const searchInput = document.getElementById("siteSearch");
+  const results = document.getElementById("searchResults");
+  function runSearch(){
+    const term = searchInput.value.trim().toLowerCase();
+    results.replaceChildren();
+    if(!term){results.textContent="Enter a word or topic to search.";return}
+    const sections = Array.from(document.querySelectorAll("main section"));
+    const matches = sections.filter(function(section){return section.innerText.toLowerCase().includes(term)});
+    if(matches.length === 0){results.textContent="No matching section found. Try another keyword.";return}
+    matches.forEach(function(section){
+      const link = document.createElement("a");
+      link.href = "#" + section.id;
+      const heading = section.querySelector("h2");
+      link.textContent = heading ? heading.textContent : "Open section";
+      link.addEventListener("click",function(){if(window.innerWidth <= 760) closeMenu()});
+      results.appendChild(link);
+    });
+  }
+  document.getElementById("searchBtn").addEventListener("click",runSearch);
+  searchInput.addEventListener("keydown",function(event){if(event.key==="Enter")runSearch()});
+
+  document.getElementById("backTop").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"})});
+})();
+</script>
+</body>
+</html>
